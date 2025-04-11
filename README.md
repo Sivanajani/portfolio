@@ -2,7 +2,7 @@
 
 Welcome to my personal portfolio! This site showcases who I am, my technical skills, and the projects I've worked on.
 
-Live Demo 👉 [inprogress](inprogress)
+Live Demo 👉 [https://sivanajani.github.io/portfolio/](https://sivanajani.github.io/portfolio/)
 ---
 
 ## ✨ Features
