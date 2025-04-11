@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Tilt } from "react-tilt";
 import { motion } from "framer-motion";
 
@@ -22,11 +22,7 @@ const ProjectCardContent = ({ name, description, tags, image, source_code_link }
           onClick={() => window.open(source_code_link, "_blank")}
           className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer"
         >
-          <img
-            src={github}
-            alt="source code"
-            className="w-1/2 h-1/2 object-contain"
-          />
+          <img src={github} alt="source code" className="w-1/2 h-1/2 object-contain" />
         </div>
       </div>
     </div>
@@ -45,7 +41,17 @@ const ProjectCardContent = ({ name, description, tags, image, source_code_link }
 );
 
 const ProjectCard = (props) => {
-  const isMobile = window.innerWidth <= 768;
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
+    setIsMobile(mediaQuery.matches);
+
+    const handleResize = (e) => setIsMobile(e.matches);
+    mediaQuery.addEventListener("change", handleResize);
+
+    return () => mediaQuery.removeEventListener("change", handleResize);
+  }, []);
 
   return (
     <motion.div variants={fadeIn("up", "spring")}>
@@ -66,7 +72,6 @@ const ProjectCard = (props) => {
   );
 };
 
-
 const Works = () => {
   const [activeTag, setActiveTag] = useState("All");
 
@@ -75,27 +80,31 @@ const Works = () => {
     ...new Set(projects.flatMap((project) => project.tags.map((tag) => tag.name))),
   ];
 
-  const filteredProjects = activeTag === "All"
-  ? projects
-  : projects.filter((project) =>
-      project.tags.some((tag) => tag.name === activeTag)
-    );
+  const filteredProjects =
+    activeTag === "All"
+      ? projects
+      : projects.filter((project) =>
+          project.tags.some((tag) => tag.name === activeTag)
+        );
 
   return (
     <>
       <motion.div variants={textVariant()}>
-        <p className={`${styles.sectionSubText} text-center `}>My work</p>
+        <p className={`${styles.sectionSubText} text-center`}>My work</p>
         <h2 className={`${styles.sectionHeadText} text-center`}>Projects</h2>
       </motion.div>
       <div className="w-full flex">
-        <motion.p variants={fadeIn("", "", 0.1)} className="mt-3 text-secondary text-[17px] max-w-3xl leading-[30px] text-center mx-auto">
-        These projects reflect my growth in software development and data-driven thinking.
-        Each one was a hands-on opportunity to deepen my skills, explore new technologies, and build practical solutions – from web apps to machine learning workflows.
-        You'll find a brief description for every project, along with links to the code repositories.
+        <motion.p
+          variants={fadeIn("", "", 0.1)}
+          className="mt-3 text-secondary text-[17px] max-w-3xl leading-[30px] text-center mx-auto"
+        >
+          These projects reflect my growth in software development and data-driven thinking.
+          Each one was a hands-on opportunity to deepen my skills, explore new technologies, and build practical solutions – from web apps to machine learning workflows.
+          You'll find a brief description for every project, along with links to the code repositories.
         </motion.p>
       </div>
-      <div className="mt-20 flex flex-wrap gap-7">
-        {projects.map((project, index) => (
+      <div className="mt-20 flex flex-wrap gap-7 justify-center">
+        {filteredProjects.map((project, index) => (
           <ProjectCard key={`project-${index}`} {...project} />
         ))}
       </div>
