@@ -54,23 +54,25 @@ const Tech = () => {
       </div>
 
       {isMobile && totalPages > 1 && (
-        <div className="mt-6 flex justify-center gap-4">
+        <div className="mt-6 flex justify-center gap-4 mt-8">
           <button
             onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
             disabled={currentPage === 1}
-            className="px-4 py-1 rounded bg-secondary text-white disabled:opacity-40"
+            className="min-w-[48px] min-h-[48px] px-4 py-2 bg-tertiary text-white rounded-md text-lg hover:bg-secondary transition active:scale-95 disabled:opacity-50"
           >
             Prev
           </button>
-          <span className="text-white mt-1">
+          
+          <span className="text-black text-sm mt-1">
             Page {currentPage} of {totalPages}
           </span>
+
           <button
             onClick={() =>
               setCurrentPage((prev) => Math.min(prev + 1, totalPages))
             }
             disabled={currentPage === totalPages}
-            className="px-4 py-1 rounded bg-secondary text-white disabled:opacity-40"
+            className="min-w-[48px] min-h-[48px] px-4 py-2 bg-tertiary text-white rounded-md text-lg hover:bg-secondary transition active:scale-95 disabled:opacity-50"
           >
             Next
           </button>
