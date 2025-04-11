@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BallCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
 import { technologies } from "../constants";
@@ -6,18 +6,31 @@ import { styles } from "../styles";
 import { motion } from "framer-motion";
 import { textVariant } from "../utils/motion";
 
-const renderTechnologies = () => {
-  return technologies.map(({ name, icon }) => (
-    <div className="relative w-28 h-28 group" key={name}>
-      <BallCanvas icon={icon} />
-      <div className="absolute -bottom-7 left-1/2 transform -translate-x-1/2 bg-[#2a2a2a] text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition duration-200">
-        {name}
-      </div>
-    </div>
-  ));
-};
+const ITEMS_PER_PAGE = 6;
 
 const Tech = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
+    setIsMobile(mediaQuery.matches);
+
+    const handleChange = (e) => setIsMobile(e.matches);
+    mediaQuery.addEventListener("change", handleChange);
+
+    return () => mediaQuery.removeEventListener("change", handleChange);
+  }, []);
+
+  const totalPages = Math.ceil(technologies.length / ITEMS_PER_PAGE);
+
+  const paginatedTechnologies = isMobile
+    ? technologies.slice(
+        (currentPage - 1) * ITEMS_PER_PAGE,
+        currentPage * ITEMS_PER_PAGE
+      )
+    : technologies;
+
   return (
     <>
       <motion.div variants={textVariant()}>
@@ -30,11 +43,41 @@ const Tech = () => {
       </motion.div>
 
       <div className="mt-5 flex flex-row flex-wrap justify-center gap-10">
-        {renderTechnologies()}
+        {paginatedTechnologies.map(({ name, icon }) => (
+          <div className="relative w-28 h-28 group" key={name}>
+            <BallCanvas icon={icon} />
+            <div className="absolute -bottom-7 left-1/2 transform -translate-x-1/2 bg-[#2a2a2a] text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition duration-200">
+              {name}
+            </div>
+          </div>
+        ))}
       </div>
+
+      {isMobile && totalPages > 1 && (
+        <div className="mt-6 flex justify-center gap-4">
+          <button
+            onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+            disabled={currentPage === 1}
+            className="px-4 py-1 rounded bg-secondary text-white disabled:opacity-40"
+          >
+            Prev
+          </button>
+          <span className="text-white mt-1">
+            Page {currentPage} of {totalPages}
+          </span>
+          <button
+            onClick={() =>
+              setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+            }
+            disabled={currentPage === totalPages}
+            className="px-4 py-1 rounded bg-secondary text-white disabled:opacity-40"
+          >
+            Next
+          </button>
+        </div>
+      )}
     </>
   );
 };
-
 
 export default SectionWrapper(Tech, "tech");
