@@ -7,6 +7,9 @@ import { github } from "../assets";
 import { SectionWrapper } from "../hoc";
 import { projects } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+
 
 const ProjectCardContent = ({ name, description, tags, image, source_code_link }) => (
   <div className="bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full">
@@ -74,6 +77,15 @@ const ProjectCard = (props) => {
 
 const Works = () => {
   const [activeTag, setActiveTag] = useState("All");
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
+    setIsMobile(mediaQuery.matches);
+    const handleResize = (e) => setIsMobile(e.matches);
+    mediaQuery.addEventListener("change", handleResize);
+    return () => mediaQuery.removeEventListener("change", handleResize);
+  }, []);
 
   const uniqueTags = [
     "All",
@@ -103,11 +115,34 @@ const Works = () => {
           You'll find a brief description for every project, along with links to the code repositories.
         </motion.p>
       </div>
-      <div className="mt-20 flex flex-wrap gap-7 justify-center">
-        {filteredProjects.map((project, index) => (
-          <ProjectCard key={`project-${index}`} {...project} />
-        ))}
+      {isMobile ? (
+  <>
+    <div className="relative w-full flex justify-center mt-3">
+      <div className="absolute top-0 animate-bounce-x text-secondary text-sm bg-white rounded-full px-4 py-1 shadow-md">
+        <span className="text-sm">← Swipe →</span>
       </div>
+    </div>
+    <Swiper
+      spaceBetween={20}
+      slidesPerView={1}
+      loop={true}
+      className="mt-10 max-w-xs mx-auto"
+    >
+      {filteredProjects.map((project, index) => (
+        <SwiperSlide key={`project-${index}`}>
+          <ProjectCard {...project} />
+        </SwiperSlide>
+      ))}
+    </Swiper>
+  </>
+) : (
+  <div className="mt-20 flex flex-wrap gap-7 justify-center">
+    {filteredProjects.map((project, index) => (
+      <ProjectCard key={`project-${index}`} {...project} />
+    ))}
+  </div>
+)}
+
     </>
   );
 };

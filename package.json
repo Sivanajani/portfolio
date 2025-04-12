@@ -1,5 +1,5 @@
 {
-  "name": "Portfolio-Website",
+  "name": "portfolio",
   "homepage": "https://sivanajani.github.io/portfolio/",
   "private": true,
   "version": "0.0.0",
@@ -28,6 +28,7 @@
     "react-router-dom": "^6.13.0",
     "react-tilt": "^1.0.2",
     "react-vertical-timeline-component": "^3.6.0",
+    "swiper": "^11.2.6",
     "typewriter-effect": "^2.20.1"
   },
   "devDependencies": {
