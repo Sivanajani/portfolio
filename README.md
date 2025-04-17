@@ -2,7 +2,7 @@
 
 Welcome to my personal portfolio! This site showcases who I am, my technical skills, and the projects I've worked on.
 
-Live Demo 👉 [https://sivanajani.github.io/portfolio/](https://sivanajani.github.io/portfolio/)
+Live Demo 👉 [https://sivanajani.ch](https://sivanajani.ch/)
 ---
 
 ## ✨ Features
@@ -27,6 +27,7 @@ Live Demo 👉 [https://sivanajani.github.io/portfolio/](https://sivanajani.gith
 - [x] Responsive layout
 - [x] 3D Earth and Computer models
 - [x] Email contact form
+- [x] Own Domain
 - [ ] Light/Dark Mode Toggle
 - [ ] Language Switcher (EN/DE)
 
