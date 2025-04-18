@@ -108,10 +108,20 @@
         "emailError": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
         "message": "Ihre Nachricht",
         "messagePlaceholder": "Was möchten Sie mir mitteilen?",
+        "messageError": "Bitte gib eine Nachricht ein.",
         "send": "Senden",
         "sending": "Wird gesendet...",
         "confirmation": "Vielen Dank! Ich melde mich so bald wie möglich bei Ihnen.",
-        "error": "Es ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut. :/"
+        "error": "Es ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut. :/",
+        "messageEmptyConfirmTitle": "Leere Nachricht?",
+        "messageEmptyConfirmText": "Möchtest du wirklich ohne Nachricht senden?",
+        "confirmSend": "Ja, senden",
+        "cancelSend": "Nein, zurück",
+        "successTitle": "Nachricht gesendet!",
+        "emailInvalid": "Ungültige E-Mail-Adresse",
+        "emailInvalidMessage": "Bitte gib eine gültige E-Mail-Adresse ein, damit ich dich erreichen kann.",
+        "linkLabel": "Dateilink",
+        "fileLinkPlaceholder": "Link zu einer Datei (optional)"
     },
     "footer": {
         "credits": "Impressum & Credits",

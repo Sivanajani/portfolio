@@ -108,10 +108,21 @@
         "emailError": "Please enter a valid email address.",
         "message": "Your Message",
         "messagePlaceholder": "What would you like to say?",
+        "messageError": "Please enter a message.",
         "send": "Send",
         "sending": "Sending...",
         "confirmation": "Thank you! I will get back to you as soon as possible.",
-        "error": "Something went wrong. Please try again. :/"
+        "error": "Something went wrong. Please try again. :/",
+        "messageEmptyConfirmTitle": "Empty message?",
+        "messageEmptyConfirmText": "Do you really want to send without a message?",
+        "confirmSend": "Yes, send it",
+        "cancelSend": "No, go back",
+        "successTitle": "Message sent!",
+        "emailInvalid": "Invalid email address",
+        "emailInvalidMessage": "Please enter a valid email address so I can contact you.",
+        "linkLabel": "File link",
+        "fileLinkPlaceholder": "Link to a file (optional)"
+
     },
     "footer": {
         "credits": "Impressum & Credits",

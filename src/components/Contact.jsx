@@ -7,6 +7,7 @@ import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
 import "../index.css";
 import { useTranslation } from "react-i18next";
+import Swal from 'sweetalert2';
 
 const InputField = ({ label, value, onChange, placeholder, name, type }) => (
   <label className="flex flex-col">
@@ -17,7 +18,7 @@ const InputField = ({ label, value, onChange, placeholder, name, type }) => (
       value={value}
       onChange={onChange}
       placeholder={placeholder}
-      className="bg-white py-4 px-6 placeholder:text-secondary text-black rounded-lg outline-none border-none font-medium"
+      className="bg-white backdrop-blur-sm py-4 px-6 placeholder:text-secondary text-black rounded-lg outline-none border border-transparent focus:border-[#ff8b80] transition-all duration-300"
     />
   </label>
 );
@@ -49,74 +50,198 @@ const Contact = () => {
     return regex.test(email);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setEmailError("");
-    setNameError("");
     setConfirmation("");
 
+    const email = form.email.trim();
+  
     if (!validateEmail(form.email)) {
-      setEmailError("Please enter a valid email address.");
+      Swal.fire({
+        icon: "warning",
+        title: t("contact.emailError"),
+        confirmButtonColor: "#ff8b80",
+        background: "#1a1a1a",
+        color: "#ffffff"
+      });
       return;
     }
-
+  
     if (!form.name.trim()) {
-      setNameError("Name is required.");
+      Swal.fire({
+        icon: "warning",
+        title: t("contact.nameError"),
+        confirmButtonColor: "#ff8b80",
+        background: "#1a1a1a",
+        color: "#ffffff"
+      });
       return;
     }
 
+    if (!form.message.trim()) {
+      Swal.fire({
+        icon: "warning",
+        title: t("contact.messageEmptyConfirmTitle"),
+        text: t("contact.messageEmptyConfirmText"),
+        showCancelButton: true,
+        confirmButtonText: t("contact.confirmSend"),
+        cancelButtonText: t("contact.cancelSend"),
+        confirmButtonColor: "#ff8b80",
+        cancelButtonColor: "#555",
+        background: "#1a1a1a",
+        color: "#ffffff"
+      }).then((result) => {
+        if (result.isConfirmed) {
+          sendEmail();
+        }
+      });
+      return;
+    }
+    const apiKey = "e41035c5936cac5c11cb62aa1687b94b";
+    const verifyUrl = `https://apilayer.net/api/check?access_key=${apiKey}&email=${encodeURIComponent(email)}&smtp=1&format=1`;
+  
+    try {
+      const response = await fetch(verifyUrl);
+      const data = await response.json();
+  
+      if (!data.format_valid || !data.smtp_check || !data.mx_found) {
+        await Swal.fire({
+          icon: "warning",
+          title: t("contact.emailInvalid"),
+          text: t("contact.emailInvalidMessage"),
+          confirmButtonColor: "#ff8b80",
+          background: "#1a1a1a",
+          color: "#ffffff"
+        });
+        return;
+      }
+      
+    } catch (error) {
+      console.error("Verification error:", error);
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: t("contact.verificationError"),
+        confirmButtonColor: "#ff8b80",
+        background: "#1a1a1a",
+        color: "#ffffff"
+      });
+      return;
+    }
+   
+  
     setLoading(true);
+  
+    const templateParams = {
+      from_name: form.name,
+      from_email: form.email,
+      message: form.message,
+      file_link: form.file_link || "Kein Link angegeben",
+    };
+  
+    emailjs
+      .send(
+        "service_i4pw2ng",
+        "template_bew909z",
+        templateParams,
+        "Ms4-Lh8pz8_cuj_sr"
+      )
+      .then(() => {
+        return emailjs.send(
+          "service_i4pw2ng",
+          "template_8enkfou",
+          templateParams,
+          "Ms4-Lh8pz8_cuj_sr"
+        );
+      })
+      .then(() => {
+        setLoading(false);
+        Swal.fire({
+          title: t("contact.successTitle"),
+          text: t("contact.confirmation"),
+          icon: "success",
+          confirmButtonColor: "#ff8b80",
+          background: "#1a1a1a",
+          color: "#ffffff",
+          customClass: {
+            popup: 'rounded-xl p-8 shadow-lg',
+            confirmButton: 'rounded-lg px-6 py-2 font-semibold'
+          }
+        });
+  
+        setForm({ name: "", email: "", message: "" });
+      })
+      .catch((error) => {
+        setLoading(false);
+        console.error(error);
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: t("contact.error"),
+          confirmButtonColor: "#ff8b80",
+          background: "#1a1a1a",
+          color: "#ffffff"
+        });
+      });
+  };
 
+  const sendEmail = () => {
+    setLoading(true);
+  
     const templateParams = {
       from_name: form.name,
       from_email: form.email,
       message: form.message,
     };
-
+  
     emailjs
       .send(
         "service_i4pw2ng",
-        "template_o7fs3ir",
-        templateParams,
-        "Ms4-Lh8pz8_cuj_sr"
+        "template_8enkfou",
+        templateParams, "Ms4-Lh8pz8_cuj_sr"
       )
-
-    // Auto-Reply an den Absender
-    emailjs
-       .send(
-          "service_i4pw2ng",
-          "template_8enkfou", 
-          templateParams,
-          "Ms4-Lh8pz8_cuj_sr"
-  )
-
-
-      .then(
-        () => {
-          setLoading(false);
-          setConfirmation("Thank you! I will get back to you as soon as possible.");
-
-          setForm({
-            name: "",
-            email: "",
-            message: "",
-          });
-        }
-      )
+      .then(() => {
+        setLoading(false);
+        Swal.fire({
+          title: t("contact.successTitle"),
+          text: t("contact.confirmation"),
+          icon: "success",
+          confirmButtonColor: "#ff8b80",
+          background: "#1a1a1a",
+          color: "#ffffff",
+          customClass: {
+            popup: "rounded-xl p-8 shadow-lg",
+            confirmButton: "rounded-lg px-6 py-2 font-semibold"
+          }
+        });
+  
+        setForm({ name: "", email: "", message: "" });
+      })
       .catch((error) => {
         setLoading(false);
         console.error(error);
-        setConfirmation("Something went wrong. Please try again. :/");
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: t("contact.error"),
+          confirmButtonColor: "#ff8b80",
+          background: "#1a1a1a",
+          color: "#ffffff"
+        });
       });
   };
-
+  
   return (
     <div className={`xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden`}>
       <motion.div variants={slideIn("left", "tween", 0.2, 1)} className="flex-[1] bg-tertiary p-8 rounded-2xl">
         <p className={styles.sectionSubText}>{t("contact.subtitle")}</p>
         <h3 className={styles.sectionHeadText}>{t("contact.title")}</h3>
 
-        <form ref={formRef} onSubmit={handleSubmit} className="mt-12 flex flex-col gap-8">
+        <form
+        ref={formRef} 
+        onSubmit={handleSubmit} 
+        className="mt-12 flex flex-col gap-8"
+        >
           <InputField
             label={t("contact.name")}
             name="name"
@@ -145,15 +270,25 @@ const Contact = () => {
             placeholder={t("contact.messagePlaceholder")}
             type="text"
           />
+          <InputField
+            label={t("contact.linkLabel")}
+            name="file_link"
+            value={form.file_link}
+            onChange={handleChange}
+            placeholder={t("contact.fileLinkPlaceholder")}
+            type="text"
+          />
+
 
           <button
             type="submit"
-            className="bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary"
+            className="flex items-center gap-2 bg-gradient-to-r from-secondary to-[#ff8b80] py-3 px-8 rounded-xl text-white font-bold shadow-lg hover:shadow-2xl transition-all duration-300 w-fit"
           >
             {loading ? t("contact.sending") : t("contact.send")}
           </button>
           {confirmation && <p className="text-green-500">{t("contact.confirmation")}</p>}
         </form>
+
       </motion.div>
 
       <motion.div variants={slideIn("right", "tween", 0.2, 1)} className="xl:flex-1 xl:h-auto md:h-[550px] h-[350px]">

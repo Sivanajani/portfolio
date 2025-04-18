@@ -108,10 +108,21 @@
         "emailError": "Veuillez saisir une adresse e-mail valide.",
         "message": "Votre message",
         "messagePlaceholder": "Que souhaitez-vous me dire ?",
+        "messageError": "Veuillez saisir un message.",
         "send": "Envoyer",
         "sending": "Envoi en cours...",
         "confirmation": "Merci ! Je vous répondrai dès que possible.",
-        "error": "Une erreur est survenue. Veuillez réessayer. :/"
+        "error": "Une erreur est survenue. Veuillez réessayer. :/",
+        "messageEmptyConfirmTitle": "Message vide ?",
+        "messageEmptyConfirmText": "Voulez-vous vraiment envoyer sans message ?",
+        "confirmSend": "Oui, envoyer",
+        "cancelSend": "Non, revenir",
+        "successTitle": "Message envoyé !",
+        "emailInvalid": "Adresse e-mail invalide",
+        "emailInvalidMessage": "Veuillez saisir une adresse e-mail valide pour que je puisse vous contacter.",
+        "linkLabel": "Lien de fichier",
+        "fileLinkPlaceholder": "Lien vers un fichier (facultatif)"
+
     },
     "footer": {
         "credits": "Mentions légales & Crédits",

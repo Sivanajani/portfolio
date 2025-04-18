@@ -33,6 +33,7 @@
     "react-router-dom": "^6.13.0",
     "react-tilt": "^1.0.2",
     "react-vertical-timeline-component": "^3.6.0",
+    "sweetalert2": "^11.19.1",
     "swiper": "^11.2.6",
     "typewriter-effect": "^2.20.1"
   },
