@@ -9,6 +9,7 @@ import "../index.css";
 import { useTranslation } from "react-i18next";
 import Swal from 'sweetalert2';
 
+
 const InputField = ({ label, value, onChange, placeholder, name, type }) => (
   <label className="flex flex-col">
     <span className="text-white font-medium mb-4">{label}</span>
@@ -24,6 +25,14 @@ const InputField = ({ label, value, onChange, placeholder, name, type }) => (
 );
 
 const Contact = () => {
+
+  const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+  const EMAIL_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+  const EMAIL_TEMPLATE_REPLY_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_REPLY_ID;
+  const EMAIL_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+  const apiKey = import.meta.env.VITE_EMAIL_VERIFICATION_KEY;
+  
+
   const { t } = useTranslation();
 
   const formRef = useRef();
@@ -97,7 +106,7 @@ const Contact = () => {
       });
       return;
     }
-    const apiKey = "e41035c5936cac5c11cb62aa1687b94b";
+    
     const verifyUrl = `https://apilayer.net/api/check?access_key=${apiKey}&email=${encodeURIComponent(email)}&smtp=1&format=1`;
   
     try {
@@ -141,17 +150,17 @@ const Contact = () => {
   
     emailjs
       .send(
-        "service_i4pw2ng",
-        "template_bew909z",
+        EMAILJS_SERVICE_ID,
+        EMAIL_TEMPLATE_ID,
         templateParams,
-        "Ms4-Lh8pz8_cuj_sr"
+        EMAIL_PUBLIC_KEY
       )
       .then(() => {
         return emailjs.send(
-          "service_i4pw2ng",
-          "template_8enkfou",
+          EMAILJS_SERVICE_ID,
+          EMAIL_TEMPLATE_REPLY_ID,
           templateParams,
-          "Ms4-Lh8pz8_cuj_sr"
+          EMAIL_PUBLIC_KEY
         );
       })
       .then(() => {
@@ -193,42 +202,7 @@ const Contact = () => {
       from_email: form.email,
       message: form.message,
     };
-  
-    emailjs
-      .send(
-        "service_i4pw2ng",
-        "template_8enkfou",
-        templateParams, "Ms4-Lh8pz8_cuj_sr"
-      )
-      .then(() => {
-        setLoading(false);
-        Swal.fire({
-          title: t("contact.successTitle"),
-          text: t("contact.confirmation"),
-          icon: "success",
-          confirmButtonColor: "#ff8b80",
-          background: "#1a1a1a",
-          color: "#ffffff",
-          customClass: {
-            popup: "rounded-xl p-8 shadow-lg",
-            confirmButton: "rounded-lg px-6 py-2 font-semibold"
-          }
-        });
-  
-        setForm({ name: "", email: "", message: "" });
-      })
-      .catch((error) => {
-        setLoading(false);
-        console.error(error);
-        Swal.fire({
-          icon: "error",
-          title: "Oops...",
-          text: t("contact.error"),
-          confirmButtonColor: "#ff8b80",
-          background: "#1a1a1a",
-          color: "#ffffff"
-        });
-      });
+
   };
   
   return (
