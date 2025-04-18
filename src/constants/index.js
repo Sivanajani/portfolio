@@ -25,23 +25,23 @@ import {
 export const navLinks = [
   {
     id: "about",
-    title: "About",
+    title: "navbar.about",
   },
   {
     id: "tech",
-    title: "Tech Stack",
+    title: "navbar.tech",
   },
   {
     id: "work",
-    title: "Work",
+    title: "navbar.work",
   },
   {
     id: "projects",
-    title: "Projects",
+    title: "navbar.projects",
   },
   {
     id: "contact",
-    title: "Contact",
+    title: "navbar.contact",
   },
 ];
 
@@ -64,64 +64,64 @@ export const technologies = [
 
 export const experiences = [
   {
-    title: "Materials Management Intern",
-    company_name: "F. Hoffmann-La Roche AG, Kaiseraugst AG",
+    title: "sections.experience.roche.title",
+    company_name: "sections.experience.roche.company",
     icon: roche,
     iconBg: "#fafafa",
-    date: "Sep. 2023 - Feb. 2024",
+    date: "sections.experience.roche.date",
     points: [
-      "Development and implementation of automation processes",
-      "Extensive use of Google Apps and Google Apps Script",
-      "Creation and maintenance of informative Google Sites",
-      "Conducted training sessions for Lucidspark",
+      "sections.experience.roche.point1",
+      "sections.experience.roche.point2",
+      "sections.experience.roche.point3",
+      "sections.experience.roche.point4",
     ],
   },
   {
-    title: "Responsible IT Services",
-    company_name: "FHNW Fachhochschule Nordwestschweiz, Windisch AG",
+    title: "sections.experience.fhnw.title",
+    company_name: "sections.experience.fhnw.company",
     icon: fhnw,
     iconBg: "#fafafa",
-    date: "Sep. 2022 - Feb. 2023",
+    date: "sections.experience.fhnw.date",
     points: [
-      "Managed IT support requests and ensured efficient issue resolution",
-      "Development, management, and implementation of IT strategies",
-      "Responsible for the development and maintenance of the website",
-      "Experience working with SAP systems",
+      "sections.experience.fhnw.point1",
+      "sections.experience.fhnw.point2",
+      "sections.experience.fhnw.point3",
+      "sections.experience.fhnw.point4",
     ],
   },
   {
-    title: "Practical training in nursing support",
-    company_name: "KSA Kantonsspital Aarau, Aarau AG",
+    title: "sections.experience.ksa.title",
+    company_name: "sections.experience.ksa.company",
     icon: ksa,
     iconBg: "#fafafa",
-    date: "Sep. 2020 - Feb. 2021",
+    date: "sections.experience.ksa.date",
     points: [
-      "Coordination and scheduling of appointments",
-      "Office correspondence",
-      "Patient and family support",
-      "Nursing and household tasks",
+      "sections.experience.ksa.point1",
+      "sections.experience.ksa.point2",
+      "sections.experience.ksa.point3",
+      "sections.experience.ksa.point4",
     ],
   },
   {
-    title: "Saleswoman & Office Manager (Family business)",
-    company_name: "Kiosk Bistro Lebensmittel, Oberdorf BL",
+    title: "sections.experience.bistro.title",
+    company_name: "sections.experience.bistro.company",
     icon: kiosk,
     iconBg: "#fafafa",
-    date: "Dez. 2017 - Sep. 2020",
+    date: "sections.experience.bistro.date",
     points: [
-      "Various administrative tasks (MS-Office program)",
-      "Office correspondence",
-      "Quality, data, and freshness control",
-      "Customer service and providing information to customers",
+      "sections.experience.bistro.point1",
+      "sections.experience.bistro.point2",
+      "sections.experience.bistro.point3",
+      "sections.experience.bistro.point4",
     ],
   },
 ];
 
 export const projects = [
   {
-    name: "HistoApp",
+    name: "projects.histoapp.name",
     description:
-      "React & Spring Boot app (Fullstack) for viewing and annotating DICOM-based tissue images, integrated with Orthanc PACS and Keycloak.",
+      "projects.histoapp.description",
     tags: [
       { name: "React", color: "lavender-text-gradient" },
       { name: "Kotlin", color: "lavender-text-gradient" },
@@ -138,9 +138,9 @@ export const projects = [
     source_code_link: "https://github.com/Sivanajani/HistoApp",
   },
   {
-    name: "Anamnesis Form – Automated PDF Analysis",
+    name: "projects.anamnese.name",
     description:
-      "This project focuses on the automated analysis and processing of anamnesis forms. The goal is to extract printed content from PDFs, evaluate checkboxes, and match results against a catalog of statements.",
+      "projects.anamnese.description",
     tags: [
       { name: "Python", color: "lavender-text-gradient" },
       { name: "OCR", color: "lavender-text-gradient" },
@@ -150,9 +150,9 @@ export const projects = [
     source_code_link: "https://github.com/Sivanajani/Anamnese-Formular",
   },
   {
-    name: "Region Growing Labeln",
+    name: "projects.region.name",
     description:
-      "Region Growing segmentation of star-like blobs using Python, NumPy, Matplotlib, and scikit-image.",
+      "projects.region.description",
     tags: [
       { name: "Flood-Fill", color: "lavender-text-gradient" },
       { name: "Visualization", color: "lavender-text-gradient" },
@@ -169,9 +169,9 @@ export const projects = [
       "https://github.com/Sivanajani/RegionGrowingLabeln",
   },
   {
-    name: "Emotion Recognition with Vision Transformer",
+    name: "projects.emotion.name",
     description:
-      "Fine-tuning a Vision Transformer (ViT) model for emotion classification using the FER2013 dataset – including preprocessing, augmentation and training.",
+      "projects.emotion.description",
     tags: [
       { name: "Computer Vision", color: "lavender-text-gradient" },
       { name: "Pytorch", color: "lavender-text-gradient" },
@@ -183,9 +183,9 @@ export const projects = [
     source_code_link: "https://github.com/Sivanajani/Emotion-Recognition-with-Vision-Transformer",
   },
   {
-    name: "Parkinson Datensatzanalyse",
+    name: "projects.parkinson.name",
     description:
-      "Data preprocessing and visualization of 5,875 voice recordings from Parkinson's patients to explore predictors of UPDRS scores.",
+      "projects.parkinson.description",
     tags: [
       { name: "Python", color: "lavender-text-gradient" },
       { name: "Pandas", color: "lavender-text-gradient" },

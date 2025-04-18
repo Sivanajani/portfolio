@@ -3,8 +3,11 @@ import { motion } from "framer-motion";
 import { styles } from "../styles";
 import { ComputersCanvas } from "./canvas";
 import Typewriter from "typewriter-effect";
+import { useTranslation } from "react-i18next";
 
 const Hero = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="relative w-full h-[60vh] sm:h-screen mx-auto">
       <div className={`absolute inset-0 top-[100px] sm:top-[120px] max-w-7xl mx-auto ${styles.paddingX} flex flex-row items-start gap-5`}>
@@ -15,20 +18,19 @@ const Hero = () => {
 
         <div>
           <h1 className={`${styles.heroHeadText} text-white`}>
-            Hi, I'm <span className="text-secondary">Sivanajani, </span>
+            {t("hero.greeting")} <span className="text-secondary">Sivanajani,</span>
           </h1>
           <div className={`${styles.heroSubText} mt-2 text-white-100`}>
-          I build software using
+            {t("hero.subline")}
             <Typewriter
               options={{
                 strings: [
-                  "React & Spring Boot",
-                  "Docker & PostgreSQL",
-                  "...and more.",
+                  t("hero.stack.1"),
+                  t("hero.stack.2"),
+                  t("hero.stack.3"),
                 ],
                 autoStart: true,
                 loop: true,
-                loopCount: Infinity,
                 deleteSpeed: "natural",
                 pauseFor: 1000,
               }}
@@ -59,5 +61,6 @@ const Hero = () => {
     </section>
   );
 };
+
 
 export default Hero;

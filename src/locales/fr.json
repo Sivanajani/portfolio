@@ -1,0 +1,126 @@
+{
+    "navbar": {
+      "about": "À propos de moi",
+      "tech": "Tech Stack",
+      "work": "Expérience",
+      "projects": "Projets",
+      "contact": "Contact"
+    },
+    "hero": {
+        "greeting": "Bonjour, je suis",
+        "subline": "Je conçois des logiciels avec",
+        "stack": {
+            "1": "React & Spring Boot",
+            "2": "Docker & PostgreSQL",
+            "3": "...et d'autres technologies."
+        }
+    },
+    "about": {
+        "intro": "À propos de moi",
+        "title": "Aperçu",
+        "text1": "Je suis étudiante en informatique médicale à la",
+        "text2": "avec une passion pour le développement fullstack, l’infrastructure et les applications basées sur les données. Au cours de mes études, j’ai travaillé sur différents projets pratiques",
+        "projectsLink": "projets",
+        "text3": "— en autonomie ou en collaboration — utilisant des technologies telles que React, Spring Boot, Docker et PostgreSQL. J’ai également acquis de l’expérience en développement web et en science des données. Ces expériences m’ont permis d’évoluer aussi bien sur le plan technique que personnel — notamment en travail d’équipe, communication et gestion de projet. Je suis toujours curieuse d’apprendre, de progresser et de concevoir des solutions numériques utiles."
+    },
+    "tech": {
+        "subtitle": "Outils que j’ai utilisés",
+        "title": "Mon Stack Technologique",
+        "prev": "Précédent",
+        "next": "Suivant",
+        "page": "Page  {{current}} sur {{total}}"
+    },
+    "sections": {
+          "experience": {
+            "title": "Expérience professionnelle",
+            "sub": "Ce que j’ai accompli jusqu’à présent",
+            "roche": {
+              "title": "Stagiaire en gestion des matériaux",
+              "company": "F. Hoffmann-La Roche AG, Kaiseraugst AG",
+              "date": "sept. 2023 – févr. 2024",
+              "point1": "Développement et mise en œuvre de processus d’automatisation",
+              "point2": "Utilisation avancée de Google Apps et Apps Script",
+              "point3": "Création et gestion de sites Google informatifs",
+              "point4": "Animation de formations sur Lucidspark"
+            },
+            "fhnw": {
+              "title": "Responsable des services informatiques",
+              "company": "FHNW Université des sciences appliquées du nord-ouest de la Suisse",
+              "date": "sept. 2022 – févr. 2023",
+              "point1": "Gestion des demandes de support informatiqu",
+              "point2": "Développement et mise en œuvre de stratégies IT",
+              "point3": "Maintenance et développement du site web du département",
+              "point4": "Expérience des systèmes SAP"
+            },
+            "ksa": {
+              "title": "Stage en assistance infirmière",
+              "company": "KSA Hôpital cantonal d’Aarau, Aarau AG",
+              "date": "sept. 2020 – févr. 2021",
+              "point1": "Planification et coordination des rendez-vous",
+              "point2": "Correspondance administrative",
+              "point3": "Accompagnement des patient·e·s et de leurs proches",
+              "point4": "Assistance aux tâches de soins et d’entretien"
+            },
+            "bistro": {
+              "title": "Vendeuse & Responsable administrative (entreprise familiale)",
+              "company": "Kiosk Bistro Lebensmittel, Oberdorf BL",
+              "date": "déc. 2017 – sept. 2020",
+              "point1": "Tâches administratives diverses (MS Office)",
+              "point2": "Gestion de la correspondance interne et externe",
+              "point3": "Contrôle de la qualité, des données et de la fraîcheur",
+              "point4": "Service clientèle et information aux clients"
+            }
+          }
+        },
+        "projects": {
+            "title": "Projets",
+            "subtitle": "Mes réalisations",
+            "intro": "Ces projets reflètent ma progression en développement logiciel et dans l’analyse de données. Chacun d’eux m’a permis d’approfondir mes compétences, d’explorer de nouvelles technologies et de mettre en œuvre des solutions concrètes — des applications web aux workflows d’apprentissage automatique. Vous trouverez pour chaque projet une brève description ainsi qu’un lien vers le code source.",
+            "histoapp": {
+                "name": "HistoApp",
+                "description": "Application fullstack avec React & Spring Boot pour la visualisation et l’annotation d’images DICOM – intégrée à Orthanc PACS et Keycloak."
+            },
+            "anamnese": {
+                "name": "Formulaire d'anamnèse – Analyse automatique de PDF",
+                "description": "Analyse et traitement automatisés de formulaires d’anamnèse, incluant l’extraction de contenu PDF, l’évaluation de cases à cocher et le rapprochement avec un catalogue d’éléments."
+            },
+            "region": {
+                "name": "Étiquetage par croissance de région",
+                "description": "Segmentation d’objets en forme d’étoile à l’aide de l’algorithme Region Growing avec Python, NumPy et scikit-image."
+            },
+            "emotion": {
+                "name": "Reconnaissance des émotions avec Vision Transformer",
+                "description": "Ajustement fin d’un modèle Vision Transformer pour la classification des émotions à partir du jeu de données FER2013 – incluant le prétraitement, l’augmentation et l’entraînement."
+            },
+            "parkinson": {
+                "name": "Analyse de données sur la maladie de Parkinson",
+                "description": "Prétraitement et visualisation de 5 875 enregistrements vocaux de patients atteints de la maladie de Parkinson afin d’identifier les prédicteurs des scores UPDRS."
+            }
+    },
+    "contact": {
+        "title": "Contactez-moi",
+        "subtitle": "N'hésitez pas à me contacter",
+        "name": "Votre nom",
+        "namePlaceholder": "Entrez votre nom...",
+        "nameError": "Le nom est requis.",
+        "email": "Adresse e-mail",
+        "emailPlaceholder": "Quelle est votre adresse e-mail ?",
+        "emailError": "Veuillez saisir une adresse e-mail valide.",
+        "message": "Votre message",
+        "messagePlaceholder": "Que souhaitez-vous me dire ?",
+        "send": "Envoyer",
+        "sending": "Envoi en cours...",
+        "confirmation": "Merci ! Je vous répondrai dès que possible.",
+        "error": "Une erreur est survenue. Veuillez réessayer. :/"
+    },
+    "footer": {
+        "credits": "Mentions légales & Crédits",
+        "inspiration": "Ce portfolio s’inspire de",
+        "model1": "«Modèle 3D Stylized Planet» par",
+        "license": "sous licence",
+        "model2": "«Modèle 3D Sci-fi computer game ready» par",
+        "sketchfab": "sous licence standard de Sketchfab",
+        "background": "Image d’arrière-plan par",
+        "image": "image sur Unsplash"
+    }
+}            

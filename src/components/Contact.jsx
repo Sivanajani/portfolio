@@ -1,12 +1,12 @@
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
-
 import { styles } from "../styles";
 import { EarthCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
 import "../index.css";
+import { useTranslation } from "react-i18next";
 
 const InputField = ({ label, value, onChange, placeholder, name, type }) => (
   <label className="flex flex-col">
@@ -23,6 +23,8 @@ const InputField = ({ label, value, onChange, placeholder, name, type }) => (
 );
 
 const Contact = () => {
+  const { t } = useTranslation();
+
   const formRef = useRef();
   const [form, setForm] = useState({
     name: "",
@@ -111,36 +113,36 @@ const Contact = () => {
   return (
     <div className={`xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden`}>
       <motion.div variants={slideIn("left", "tween", 0.2, 1)} className="flex-[1] bg-tertiary p-8 rounded-2xl">
-        <p className={styles.sectionSubText}>Get in touch</p>
-        <h3 className={styles.sectionHeadText}>Contact Me</h3>
+        <p className={styles.sectionSubText}>{t("contact.subtitle")}</p>
+        <h3 className={styles.sectionHeadText}>{t("contact.title")}</h3>
 
         <form ref={formRef} onSubmit={handleSubmit} className="mt-12 flex flex-col gap-8">
           <InputField
-            label="Your Name"
+            label={t("contact.name")}
             name="name"
             value={form.name}
             onChange={handleChange}
-            placeholder="Insert Your name here..."
+            placeholder={t("contact.namePlaceholder")}
             type="text"
           />
-          {nameError && <span className="text-red-500">{nameError}</span>}
+          {nameError && <span className="text-red-500">{t("contact.nameError")}</span>}
 
           <InputField
-            label="Email Address"
+            label={t("contact.email")}
             name="email"
             value={form.email}
             onChange={handleChange}
-            placeholder="What's your email address?"
+            placeholder={t("contact.emailPlaceholder")}
             type="email"
           />
-          {emailError && <span className="text-red-500">{emailError}</span>}
+          {emailError && <span className="text-red-500">{t("contact.emailError")}</span>}
 
           <InputField
-            label="Your Message"
+            label={t("contact.message")}
             name="message"
             value={form.message}
             onChange={handleChange}
-            placeholder="What you want to say...?"
+            placeholder={t("contact.messagePlaceholder")}
             type="text"
           />
 
@@ -148,9 +150,9 @@ const Contact = () => {
             type="submit"
             className="bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary"
           >
-            {loading ? "Sending..." : "Send"}
+            {loading ? t("contact.sending") : t("contact.send")}
           </button>
-          {confirmation && <p className="text-green-500">{confirmation}</p>}
+          {confirmation && <p className="text-green-500">{t("contact.confirmation")}</p>}
         </form>
       </motion.div>
 

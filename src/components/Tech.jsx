@@ -5,10 +5,12 @@ import { technologies } from "../constants";
 import { styles } from "../styles";
 import { motion } from "framer-motion";
 import { textVariant } from "../utils/motion";
+import { useTranslation } from 'react-i18next';
 
 const ITEMS_PER_PAGE = 6;
 
 const Tech = () => {
+  const { t } = useTranslation();
   const [currentPage, setCurrentPage] = useState(1);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -35,10 +37,10 @@ const Tech = () => {
     <>
       <motion.div variants={textVariant()}>
         <p className={`${styles.sectionSubText} text-center`}>
-          Tools I’ve worked with
+        {t("tech.subtitle")}
         </p>
         <h2 className={`${styles.sectionHeadText} text-center`}>
-          My Tech Stack
+        {t("tech.title")}
         </h2>
       </motion.div>
 
@@ -60,11 +62,11 @@ const Tech = () => {
             disabled={currentPage === 1}
             className="min-w-[48px] min-h-[48px] px-4 py-2 bg-tertiary text-white rounded-md text-lg hover:bg-secondary transition active:scale-95 disabled:opacity-50"
           >
-            Prev
+            {t("tech.prev")}
           </button>
           
           <span className="text-black text-sm mt-1">
-            Page {currentPage} of {totalPages}
+          {t("tech.page", { current: currentPage, total: totalPages })}
           </span>
 
           <button
@@ -74,7 +76,7 @@ const Tech = () => {
             disabled={currentPage === totalPages}
             className="min-w-[48px] min-h-[48px] px-4 py-2 bg-tertiary text-white rounded-md text-lg hover:bg-secondary transition active:scale-95 disabled:opacity-50"
           >
-            Next
+            {t("tech.next")}
           </button>
         </div>
       )}

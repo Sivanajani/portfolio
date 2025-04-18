@@ -3,10 +3,14 @@ import { Link } from 'react-router-dom';
 import { close, logo, menu } from '../assets';
 import { navLinks } from '../constants';
 import { styles } from '../styles';
+import LanguageSwitcher from './LanguageSwitcher';
+import { useTranslation } from 'react-i18next';
 
 const Navbar = () => {
   const [active, setActive] = useState('');
   const [toggle, setToggle] = useState(false);
+  const { t } = useTranslation();
+
 
   useEffect(() => {
     if (toggle) {
@@ -29,7 +33,7 @@ const Navbar = () => {
             }
           }}
         >
-          <a href={`#${link.id}`}>{link.title}</a>
+          <a href={`#${link.id}`}>{t(link.title)}</a>
         </li>
       ))}
     </ul>
@@ -55,8 +59,15 @@ const Navbar = () => {
               <span className="sm:block hidden">Sivakumar</span>
             </p>
           </Link>
-          {renderNavLinks(false)}
+
+          <div className="hidden sm:flex items-center gap-4">
+            {renderNavLinks(false)}
+            <LanguageSwitcher />
+          </div>
+
+
           <div className="sm:hidden flex flex-1 justify-end items-center">
+          <LanguageSwitcher />
             <img
               src={toggle ? close : menu}
               alt="menu"

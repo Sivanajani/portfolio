@@ -1,0 +1,126 @@
+{
+    "navbar": {
+      "about": "About",
+      "tech": "Tech Stack",
+      "work": "Experience",
+      "projects": "Projects",
+      "contact": "Contact"
+    },
+    "hero": {
+      "greeting": "Hi, I'm",
+      "subline": "I build software using",
+      "stack": {
+        "1": "React & Spring Boot",
+        "2": "Docker & PostgreSQL",
+        "3": "...and more."
+      }
+    },
+    "about": {
+      "intro": "Introduction",
+      "title": "Overview",
+      "text1": "I'm a Medical Informatics student at",
+      "text2": "with a passion for fullstack development, infrastructure, and data-driven applications. During my studies, I’ve worked on a variety of practical",
+      "projectsLink": "projects",
+      "text3": "— both independently and in teams — using technologies such as React, Spring Boot, Docker, and PostgreSQL. I've also gained experience in web development and data science. These experiences have helped me grow both technically and personally — especially in areas like collaboration, communication, and project management. I'm always eager to learn, grow, and build meaningful digital solutions."
+    },
+    "tech": {
+      "subtitle": "Tools I’ve worked with",
+      "title": "My Tech Stack",
+      "prev": "Previous",
+      "next": "Next",
+      "page": "Page {{current}} of {{total}}"
+    },
+    "sections": {
+      "experience": {
+        "title": "Work Experience",
+        "sub": "What I have done so far",
+        "roche": {
+          "title": "Intern in Materials Management",
+          "company": "F. Hoffmann-La Roche AG, Kaiseraugst AG",
+          "date": "Sep. 2023 - Feb. 2024",
+          "point1": "Developed and implemented automation processes",
+          "point2": "Extensive use of Google Apps and Apps Script",
+          "point3": "Created and maintained informative Google Sites",
+          "point4": "Led Lucidspark training sessions"
+        },
+        "fhnw": {
+          "title": "Responsible IT Services",
+          "company": "FHNW University of Applied Sciences Northwestern Switzerland, Windisch AG",
+          "date": "Sep. 2022 - Feb. 2023",
+          "point1": "Handled IT support requests and resolved technical issues",
+          "point2": "Developed and implemented IT strategies",
+          "point3": "Managed and maintained the department website",
+          "point4": "Gained experience with SAP systems"
+        },
+        "ksa": {
+          "title": "Practical Training in Nursing Support",
+          "company": "KSA Kantonsspital Aarau, Aarau AG",
+          "date": "Sep. 2020 - Feb. 2021",
+          "point1": "Coordinated and scheduled appointments",
+          "point2": "Handled office correspondence",
+          "point3": "Supported patients and their relatives",
+          "point4": "Assisted with nursing and household tasks"
+        },
+        "bistro": {
+          "title": "Saleswoman & Office Manager (Family business)",
+          "company": "Kiosk Bistro Lebensmittel, Oberdorf BL",
+          "date": "Dez. 2017 - Sep. 2020",
+          "point1": "Performed various administrative tasks (MS Office)",
+          "point2": "Handled internal and external communications",
+          "point3": "Ensured quality control, data accuracy and freshness of products",
+          "point4": "Provided customer support and service"
+        }
+      }
+    },
+    "projects": {
+        "title": "Projects",
+        "subtitle": "My Work",
+        "intro": "These projects reflect my growth in software development and data-driven thinking. Each one was a hands-on opportunity to deepen my skills, explore new technologies, and build practical solutions – from web apps to machine learning workflows. You'll find a brief description for every project, along with links to the code repositories.",
+        "histoapp": {
+            "name": "HistoApp",
+            "description": "A fullstack React & Spring Boot application for viewing and annotating DICOM-based tissue images, integrated with Orthanc PACS and Keycloak."
+        },
+        "anamnese": {
+            "name": "Anamnesis Form – Automated PDF Analysis",
+            "description": "Automated analysis and processing of anamnesis forms, including PDF content extraction and checkbox evaluation."
+        },
+        "region": {
+            "name": "Region Growing Labeling",
+            "description": "Region growing segmentation of star-like structures using Python, NumPy, and scikit-image."
+        },
+        "emotion": {
+            "name": "Emotion Recognition with Vision Transformer",
+            "description": "Fine-tuned a Vision Transformer (ViT) model for emotion classification using the FER2013 dataset — including preprocessing, augmentation, and training."
+        },
+        "parkinson": {
+            "name": "Parkinson Dataset Analysis",
+            "description": "Preprocessed and visualized 5,875 voice recordings from Parkinson's patients to identify predictors of UPDRS scores."
+        }
+    },
+    "contact": {
+        "title": "Contact Me",
+        "subtitle": "Get in touch",
+        "name": "Your Name",
+        "namePlaceholder": "Insert your name here...",
+        "nameError": "Name is required.",
+        "email": "Email Address",
+        "emailPlaceholder": "What's your email address?",
+        "emailError": "Please enter a valid email address.",
+        "message": "Your Message",
+        "messagePlaceholder": "What would you like to say?",
+        "send": "Send",
+        "sending": "Sending...",
+        "confirmation": "Thank you! I will get back to you as soon as possible.",
+        "error": "Something went wrong. Please try again. :/"
+    },
+    "footer": {
+        "credits": "Impressum & Credits",
+        "inspiration": "This portfolio was inspired by",
+        "model1": "“3D-Model Stylized planet” by",
+        "license": "licensed under",
+        "model2": "“3D-Model Sci-fi computer game ready” by",
+        "sketchfab": "licensed under the Sketchfab Standard License",
+        "background": "Background image by",
+        "image": "image on Unsplash"
+    }
+}  

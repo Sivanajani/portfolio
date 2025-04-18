@@ -1,0 +1,126 @@
+{
+    "navbar": {
+      "about": "Über mich",
+      "tech": "Tech Stack",
+      "work": "Berufserfahrung",
+      "projects": "Projekte",
+      "contact": "Kontakt"
+    },
+    "hero": {
+        "greeting": "Hallo, ich bin",
+        "subline": "Ich entwickle Software mit",
+        "stack": {
+            "1": "React & Spring Boot",
+            "2": "Docker & PostgreSQL",
+            "3": "...und weiteren Technologien."
+        }
+    },
+    "about": {
+        "intro": "Über mich",
+        "title": "Überblick",
+        "text1": "Ich studiere Medizininformatik an der",
+        "text2": "und bringe eine Leidenschaft für Fullstack-Entwicklung, Infrastruktur und datengetriebene Anwendungen mit. Während meines Studiums habe ich an verschiedenen praxisorientierten",
+        "projectsLink": "Projekten",
+        "text3": "– sowohl eigenständig als auch im Team – mit Technologien wie React, Spring Boot, Docker und PostgreSQL gearbeitet. Darüber hinaus konnte ich Erfahrung in der Webentwicklung und der Datenanalyse sammeln. Diese Tätigkeiten haben mich sowohl fachlich als auch in Bezug auf Teamarbeit, Kommunikation und Projektmanagement weitergebracht. Ich bin stets motiviert, Neues zu lernen, mich weiterzuentwickeln und nachhaltige digitale Lösungen zu schaffen."
+    },
+    "tech": {
+        "subtitle": "Werkzeuge, mit denen ich gearbeitet habe",
+        "title": "Mein Tech Stack",
+        "prev": "Zurück",
+        "next": "Weiter",
+        "page": "Seite {{current}} von {{total}}"
+    },
+    "sections": {
+      "experience": {
+        "title": "Berufserfahrung",
+        "sub": "Was ich bisher erreicht habe",
+        "roche": {
+            "title": "Praktikum im Materialmanagement",
+            "company": "F. Hoffmann-La Roche AG, Kaiseraugst AG",
+            "date": "Sep. 2023 - Feb. 2024",
+            "point1": "Entwicklung und Umsetzung von Automatisierungsprozessen",
+            "point2": "Umfassende Nutzung von Google Apps und Google Apps Script",
+            "point3": "Erstellung und Pflege informativer Google Sites",
+            "point4": "Durchführung von Lucidspark-Schulungen"
+        },
+        "fhnw": {
+            "title": "Verantwortliche für IT-Dienste",
+            "company": "FHNW Fachhochschule Nordwestschweiz, Windisch AG",
+            "date": "Sep. 2022 – Feb. 2023",
+            "point1": "Bearbeitung von IT-Supportanfragen und technische Problemlösung",
+            "point2": "Entwicklung und Umsetzung von IT-Strategien",
+            "point3": "Pflege und Weiterentwicklung der Fachbereichs-Webseite",
+            "point4": "Erfahrung im Umgang mit SAP-Systemen"
+        },
+        "ksa": {
+            "title": "Pflegepraktikum",
+            "company": "KSA Kantonsspital Aarau, Aarau AG",
+            "date": "Sep. 2020 – Feb. 2021",
+            "point1": "Koordination und Terminplanung",
+            "point2": "Büroorganisation und Schriftverkehr",
+            "point3": "Betreuung von Patient:innen und Angehörigen",
+            "point4": "Unterstützung bei Pflege- und Haushaltstätigkeiten"
+        },
+        "bistro": {
+            "title": "Verkauf & Büroorganisation (Familienbetrieb)",
+            "company": "Kiosk Bistro Lebensmittel, Oberdorf BL",
+            "date": "Dez. 2017 – Sep. 2020",
+            "point1": "Vielfältige administrative Aufgaben (MS Office)",
+            "point2": "Bearbeitung des internen und externen Schriftverkehrs",
+            "point3": "Kontrolle von Qualität, Daten und Frische der Produkte",
+            "point4": "Kundenberatung und Service"
+        }
+      }
+    },
+    "projects": {
+        "title": "Projekte",
+        "subtitle": "Meine Arbeiten",
+        "intro": "Diese Projekte spiegeln meine Weiterentwicklung in der Softwareentwicklung und im datenbasierten Arbeiten wider. Jedes Projekt war eine praxisnahe Gelegenheit, meine Fähigkeiten zu vertiefen, neue Technologien auszuprobieren und funktionale Lösungen zu realisieren – von Webanwendungen bis hin zu Machine-Learning-Workflows. Zu jedem Projekt finden Sie eine kurze Beschreibung sowie einen Link zum Quellcode.",
+        "histoapp": {
+            "name": "HistoApp",
+            "description": "Fullstack-Applikation mit React & Spring Boot zur Darstellung und Annotation von DICOM-Bilddaten – integriert mit Orthanc PACS und Keycloak."
+        },
+        "anamnese": {
+            "name": "Anamneseformular – Automatisierte PDF-Analyse",
+            "description": "Automatisierte Analyse und Verarbeitung von Anamneseformularen inklusive PDF-Extraktion, Checkbox-Erkennung und Abgleich mit einem Katalog von Aussagen."
+        },
+        "region": {
+            "name": "Region Growing Labeling",
+            "description": "Segmentierung von sternförmigen Strukturen mithilfe von Region Growing unter Verwendung von Python, NumPy und scikit-image."
+        },
+        "emotion": {
+            "name": "Emotionserkennung mit Vision Transformer",
+            "description": "Feinabstimmung eines Vision-Transformer-Modells zur Emotionserkennung auf Basis von FER2013 – inklusive Vorverarbeitung, Datenaugmentation und Training."
+        },
+        "parkinson": {
+            "name": "Parkinson Datensatzanalyse",
+            "description": "Vorverarbeitung und Visualisierung von 5.875 Sprachaufnahmen von Parkinson-Patient:innen zur Untersuchung möglicher Prädiktoren für UPDRS-Werte."
+        }
+    },
+    "contact": {
+        "title": "Kontaktieren Sie mich",
+        "subtitle": "Ich freue mich auf Ihre Nachricht",
+        "name": "Ihr Name",
+        "namePlaceholder": "Geben Sie Ihren Namen ein...",
+        "nameError": "Bitte geben Sie Ihren Namen ein.",
+        "email": "E-Mail-Adresse",
+        "emailPlaceholder": "Wie lautet Ihre E-Mail-Adresse?",
+        "emailError": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+        "message": "Ihre Nachricht",
+        "messagePlaceholder": "Was möchten Sie mir mitteilen?",
+        "send": "Senden",
+        "sending": "Wird gesendet...",
+        "confirmation": "Vielen Dank! Ich melde mich so bald wie möglich bei Ihnen.",
+        "error": "Es ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut. :/"
+    },
+    "footer": {
+        "credits": "Impressum & Credits",
+        "inspiration": "Dieses Portfolio wurde inspiriert von",
+        "model1": "„3D-Modell Stylized Planet“ von",
+        "license": "lizenziert unter",
+        "model2": "„3D-Modell Sci-fi computer game ready“ von",
+        "sketchfab": "lizenziert unter der Sketchfab Standardlizenz",
+        "background": "Hintergrundbild von",
+        "image": "Bild auf Unsplash"
+    }
+}     
