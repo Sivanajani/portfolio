@@ -13,16 +13,28 @@ import Swal from 'sweetalert2';
 const InputField = ({ label, value, onChange, placeholder, name, type }) => (
   <label className="flex flex-col">
     <span className="text-white font-medium mb-4">{label}</span>
-    <input
-      type={type}
-      name={name}
-      value={value}
-      onChange={onChange}
-      placeholder={placeholder}
-      className="bg-white backdrop-blur-sm py-4 px-6 placeholder:text-secondary text-black rounded-lg outline-none border border-transparent focus:border-[#ff8b80] transition-all duration-300"
-    />
+    {type === "textarea" ? (
+      <textarea
+        name={name}
+        value={value}
+        onChange={onChange}
+        placeholder={placeholder}
+        rows={5}
+        className="resize-y min-h-[120px] bg-white backdrop-blur-sm py-4 px-6 placeholder:text-secondary text-black rounded-lg outline-none border border-transparent focus:border-[#ff8b80] transition-all duration-300"
+      />
+    ) : (
+      <input
+        type={type}
+        name={name}
+        value={value}
+        onChange={onChange}
+        placeholder={placeholder}
+        className="bg-white backdrop-blur-sm py-4 px-6 placeholder:text-secondary text-black rounded-lg outline-none border border-transparent focus:border-[#ff8b80] transition-all duration-300"
+      />
+    )}
   </label>
 );
+
 
 const Contact = () => {
 
@@ -30,7 +42,7 @@ const Contact = () => {
   const EMAIL_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
   const EMAIL_TEMPLATE_REPLY_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_REPLY_ID;
   const EMAIL_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-  const apiKey = import.meta.env.VITE_EMAIL_VERIFICATION_KEY;
+  const abstractKey = import.meta.env.VITE_ABSTRACT_API_KEY;
   
 
   const { t } = useTranslation();
@@ -107,13 +119,13 @@ const Contact = () => {
       return;
     }
     
-    const verifyUrl = `https://apilayer.net/api/check?access_key=${apiKey}&email=${encodeURIComponent(email)}&smtp=1&format=1`;
+    const verifyUrl = `https://emailvalidation.abstractapi.com/v1/?api_key=${abstractKey}&email=${encodeURIComponent(email)}`;
   
     try {
       const response = await fetch(verifyUrl);
       const data = await response.json();
   
-      if (!data.format_valid || !data.smtp_check || !data.mx_found) {
+      if (!data.deliverability || data.deliverability !== "DELIVERABLE") {
         await Swal.fire({
           icon: "warning",
           title: t("contact.emailInvalid"),
@@ -207,14 +219,15 @@ const Contact = () => {
   
   return (
     <div className={`xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden`}>
-      <motion.div variants={slideIn("left", "tween", 0.2, 1)} className="flex-[1] bg-tertiary p-8 rounded-2xl">
+      <motion.div variants={slideIn("left", "tween", 0.2, 1)} 
+      className="flex-[1] bg-tertiary p-8 rounded-2xl">
         <p className={styles.sectionSubText}>{t("contact.subtitle")}</p>
         <h3 className={styles.sectionHeadText}>{t("contact.title")}</h3>
 
         <form
         ref={formRef} 
         onSubmit={handleSubmit} 
-        className="mt-12 flex flex-col gap-8"
+        className="mt-6 flex flex-col gap-6"
         >
           <InputField
             label={t("contact.name")}
@@ -242,7 +255,7 @@ const Contact = () => {
             value={form.message}
             onChange={handleChange}
             placeholder={t("contact.messagePlaceholder")}
-            type="text"
+            type="textarea"
           />
           <InputField
             label={t("contact.linkLabel")}
@@ -265,7 +278,10 @@ const Contact = () => {
 
       </motion.div>
 
-      <motion.div variants={slideIn("right", "tween", 0.2, 1)} className="xl:flex-1 xl:h-auto md:h-[550px] h-[350px]">
+      <motion.div 
+         variants={slideIn("right", "tween", 0.2, 1)}
+         className="xl:flex-1 xl:h-auto md:h-[550px] h-[350px]"
+         >
         <EarthCanvas />
       </motion.div>
     </div>
