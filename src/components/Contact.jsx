@@ -47,6 +47,8 @@ const Contact = () => {
 
   const { t } = useTranslation();
 
+  const [showLinkInput, setShowLinkInput] = useState(false);
+
   const formRef = useRef();
   const [form, setForm] = useState({
     name: "",
@@ -257,14 +259,38 @@ const Contact = () => {
             placeholder={t("contact.messagePlaceholder")}
             type="textarea"
           />
-          <InputField
-            label={t("contact.linkLabel")}
-            name="file_link"
-            value={form.file_link}
-            onChange={handleChange}
-            placeholder={t("contact.fileLinkPlaceholder")}
-            type="text"
-          />
+          
+          {!showLinkInput ? (
+            <button
+            type="button"
+            onClick={() => setShowLinkInput(true)}
+            className="text-sm text-secondary underline hover:text-[#ff8b80] transition-all duration-300 w-fit"
+            >
+              🔗 {t("contact.addLink")}
+              </button>
+              ) : (
+              <div className="flex flex-col gap-2">
+                <InputField
+                label={t("contact.linkLabel")}
+                name="file_link"
+                value={form.file_link}
+                onChange={handleChange}
+                placeholder={t("contact.fileLinkPlaceholder")}
+                type="text"
+                />
+             <button
+             type="button"
+             onClick={() => {
+              setShowLinkInput(false);
+              setForm({ ...form, file_link: "" });
+            }}
+            className="text-xs text-gray-400 hover:text-red-400 transition-all duration-200 w-fit"
+            >
+              ✖️ {t("contact.removeLink")}
+              </button>
+            </div>
+          )}
+
 
 
           <button

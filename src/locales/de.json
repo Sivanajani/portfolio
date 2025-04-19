@@ -120,8 +120,10 @@
         "successTitle": "Nachricht gesendet!",
         "emailInvalid": "Ungültige E-Mail-Adresse",
         "emailInvalidMessage": "Bitte gib eine gültige E-Mail-Adresse ein, damit ich dich erreichen kann.",
-        "linkLabel": "Dateilink",
-        "fileLinkPlaceholder": "Link zu einer Datei (optional)"
+        "linkLabel": "Link",
+        "fileLinkPlaceholder": "Zum Beispiel: https://...",
+        "addLink": "Link einfügen",
+        "removeLink": "Link entfernen"
     },
     "footer": {
         "credits": "Impressum & Credits",

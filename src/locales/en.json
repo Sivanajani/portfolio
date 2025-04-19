@@ -120,8 +120,10 @@
         "successTitle": "Message sent!",
         "emailInvalid": "Invalid email address",
         "emailInvalidMessage": "Please enter a valid email address so I can contact you.",
-        "linkLabel": "File link",
-        "fileLinkPlaceholder": "Link to a file (optional)"
+        "linkLabel": "Link",
+        "fileLinkPlaceholder": "For example: https://...",
+        "addLink": "Add a Link",
+        "removeLink": "Remove Link"
 
     },
     "footer": {

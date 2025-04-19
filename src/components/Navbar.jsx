@@ -19,7 +19,7 @@ const Navbar = () => {
   }, [toggle]);
 
   const renderNavLinks = (isSecondary) => (
-    <ul className={`list-none ${isSecondary ? 'flex-col sm:hidden' : 'hidden sm:flex flex-row'} flex gap-4`}>
+    <ul className={`list-none ${isSecondary ? 'flex-col custom:hidden' : 'hidden custom:flex flex-row'} flex gap-4`}>
       {navLinks.map((link) => (
         <li
           key={link.id}
