@@ -54,19 +54,20 @@ const Navbar = () => {
             }}
           >
             <img src={logo} alt="logo" className="w-9 h-9 object-contain" />
-            <p className="text-black-100 text-[20px] font-bold cursor-pointer flex">
+            <p className="text-black-100 text-[16px] sm:text-[20px] font-bold cursor-pointer flex whitespace-nowrap">
               Sivanajani&nbsp;
               <span className="sm:block hidden">Sivakumar</span>
+              <span className="inline sm:hidden">S.</span>
             </p>
           </Link>
 
-          <div className="hidden sm:flex items-center gap-4">
+          <div className="hidden custom:flex items-center gap-4">
             {renderNavLinks(false)}
             <LanguageSwitcher />
           </div>
 
 
-          <div className="sm:hidden flex flex-1 justify-end items-center">
+          <div className="custom:hidden flex flex-1 justify-end items-center">
           <LanguageSwitcher />
             <img
               src={toggle ? close : menu}
