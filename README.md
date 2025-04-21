@@ -28,8 +28,7 @@ Live Demo 👉 [https://sivanajani.ch](https://sivanajani.ch/)
 - [x] 3D Earth and Computer models
 - [x] Email contact form
 - [x] Own Domain
-- [ ] Light/Dark Mode Toggle
-- [ ] Language Switcher (EN/DE)
+- [x] Language Switcher (EN/DE)
 
 ---
 ## 🧾 License
