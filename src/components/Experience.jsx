@@ -4,9 +4,8 @@ import {
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
 import { motion } from "framer-motion";
-
+import { Tilt } from "react-tilt";
 import "react-vertical-timeline-component/style.min.css";
-
 import { styles } from "../styles";
 import { experiences } from "../constants";
 import { SectionWrapper } from "../hoc";
@@ -19,43 +18,61 @@ const ExperienceCard = ({ experience }) => {
   return (
     <VerticalTimelineElement
       contentStyle={{
-        background: "#858585",
+        background: "linear-gradient(to bottom right, #998787, #723C9E)",
         color: "#3B0A00",
+        borderRadius: "10px",
+        boxShadow: "0 8px 30px rgba(0, 0, 0, 0.25)",
+        transition: "all 0.3s ease",
       }}
-      contentArrowStyle={{ borderRight: "7px solid #858585" }}
+      contentArrowStyle={{ borderRight: "7px  #998787" }}
       date={t(experience.date)}
       iconStyle={{ background: experience.iconBg }}
       icon={
         <div className="flex justify-center items-center w-full h-full">
-          <img
-            src={experience.icon}
-            alt={t(experience.company_name)}
-            className="w-[60%] h-[60%] object-contain"
-          />
+          <a
+            href={experience.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full h-full flex justify-center items-center transition-transform duration-300 hover:scale-110"
+          >
+            <img
+              src={experience.icon}
+              alt={t(experience.company_name)}
+              className="w-[60%] h-[60%] object-contain"
+            />
+          </a>
         </div>
       }
     >
-      <div>
-        <h3 className="text-white text-[24px] font-bold">{t(experience.title)}</h3>
-        <p className="text-secondary text-[16px] font-semibold" style={{ margin: 0 }}>
-          {t(experience.company_name)}
-        </p>
-      </div>
+      <Tilt 
+      options={{
+        max: 0.5,
+        scale: 0.2,
+        speed: 1000,
+        glareEnable: false,
+      }}
+      >
+        <div>
+          <h3 className="text-white text-[24px] font-bold">{t(experience.title)}</h3>
+          <p className="text-secondary text-[16px] font-semibold" style={{ margin: 0 }}>
+            {t(experience.company_name)}
+          </p>
+        </div>
 
-      <ul className="mt-5 list-disc ml-5 space-y-2">
-        {experience.points.map((point, index) => (
-          <li
-            key={`experience-point-${index}`}
-            className="text-white-100 text-[14px] pl-1 tracking-wider"
-          >
-            {t(point)}
-          </li>
-        ))}
-      </ul>
+        <ul className="mt-5 list-disc ml-5 space-y-2">
+          {experience.points.map((point, index) => (
+            <li
+              key={`experience-point-${index}`}
+              className="text-white-100 text-[14px] pl-1 tracking-wider"
+            >
+              {t(point)}
+            </li>
+          ))}
+        </ul>
+      </Tilt>
     </VerticalTimelineElement>
   );
 };
-
 
 const Experience = () => {
   const { t } = useTranslation();

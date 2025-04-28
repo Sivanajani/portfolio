@@ -46,7 +46,7 @@ const Tech = () => {
 
       <div className="mt-5 flex flex-row flex-wrap justify-center gap-10">
         {paginatedTechnologies.map(({ name, icon }) => (
-          <div className="relative w-28 h-28 group" key={name}>
+          <div className="relative w-28 h-28 group transition-transform duration-300 hover:scale-110" key={name}>
             <BallCanvas icon={icon} />
             <div className="absolute -bottom-7 left-1/2 transform -translate-x-1/2 bg-[#2a2a2a] text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition duration-200">
               {name}

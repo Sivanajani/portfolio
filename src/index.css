@@ -165,3 +165,9 @@
 .animate-bounce-x {
   animation: bounce-x 1s infinite;
 }
+
+.vertical-timeline.vertical-timeline::before {
+  background: linear-gradient(to bottom, #723C9E, #c8b8d1);
+  width: 4px;
+  box-shadow: 0 0 18px #723C9E, 0 0 24px #c8b8d1;
+}

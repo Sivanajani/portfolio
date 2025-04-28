@@ -76,6 +76,7 @@
         "title": "Projects",
         "subtitle": "My Work",
         "intro": "These projects reflect my growth in software development and data-driven thinking. Each one was a hands-on opportunity to deepen my skills, explore new technologies, and build practical solutions – from web apps to machine learning workflows. You'll find a brief description for every project, along with links to the code repositories.",
+        "button":"More information on GitHub →",
         "histoapp": {
             "name": "HistoApp",
             "description": "A fullstack React & Spring Boot application for viewing and annotating DICOM-based tissue images, integrated with Orthanc PACS and Keycloak."

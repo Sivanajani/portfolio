@@ -47,17 +47,17 @@ export const navLinks = [
 
 export const technologies = [
 
-  { name: "Rect JS", icon: reactjs },
-  { name: "Tailwind CSS", icon: tailwind },
-  { name: "Spring Boot", icon: springb },
-  { name: "Node JS", icon: nodejs },
   { name: "Docker", icon: docker },
-  { name: "Linux", icon: linux },
-  { name: "Python", icon: python },
-  { name: "Java", icon: java },
   { name: "Git", icon: git },
+  { name: "Java", icon: java },
   { name: "Java Script", icon: javascript },
   { name: "Kotlin", icon: Kotlin },
+  { name: "Linux", icon: linux },
+  { name: "Node JS", icon: nodejs },
+  { name: "Python", icon: python },
+  { name: "Rect JS", icon: reactjs },
+  { name: "Spring Boot", icon: springb },
+  { name: "Tailwind CSS", icon: tailwind },
   { name: "Three.js", icon: threejs },
 
 ];
@@ -69,6 +69,7 @@ export const experiences = [
     icon: roche,
     iconBg: "#fafafa",
     date: "sections.experience.roche.date",
+    link: "https://www.roche.com",
     points: [
       "sections.experience.roche.point1",
       "sections.experience.roche.point2",
@@ -82,6 +83,7 @@ export const experiences = [
     icon: fhnw,
     iconBg: "#fafafa",
     date: "sections.experience.fhnw.date",
+    link: "https://www.fhnw.ch/de",
     points: [
       "sections.experience.fhnw.point1",
       "sections.experience.fhnw.point2",
@@ -95,6 +97,7 @@ export const experiences = [
     icon: ksa,
     iconBg: "#fafafa",
     date: "sections.experience.ksa.date",
+    link: "https://www.ksa.ch/de/kantonsspital-aarau/aufenthalt-und-besuch",
     points: [
       "sections.experience.ksa.point1",
       "sections.experience.ksa.point2",
@@ -136,6 +139,7 @@ export const projects = [
     ],
     image: histoapp,
     source_code_link: "https://github.com/Sivanajani/HistoApp",
+    glowColor: "#915EFF",
   },
   {
     name: "projects.anamnese.name",
@@ -148,6 +152,7 @@ export const projects = [
     ],
     image: ana,
     source_code_link: "https://github.com/Sivanajani/Anamnese-Formular",
+    glowColor: "#2496ED",
   },
   {
     name: "projects.region.name",
@@ -165,8 +170,8 @@ export const projects = [
       { name: "Python", color: "lavender-text-gradient" },
     ],
     image: region,
-    source_code_link:
-      "https://github.com/Sivanajani/RegionGrowingLabeln",
+    source_code_link: "https://github.com/Sivanajani/RegionGrowingLabeln",
+    glowColor: "#273916",
   },
   {
     name: "projects.emotion.name",
@@ -181,6 +186,7 @@ export const projects = [
     ],
     image: emotion,
     source_code_link: "https://github.com/Sivanajani/Emotion-Recognition-with-Vision-Transformer",
+    glowColor: "#135495",
   },
   {
     name: "projects.parkinson.name",
@@ -195,7 +201,6 @@ export const projects = [
     ],
     image: park,
     source_code_link: "https://github.com/Sivanajani/Parkinson-Datensatzanalyse",
+    glowColor: "#00788E",
   },
-  
-
 ];

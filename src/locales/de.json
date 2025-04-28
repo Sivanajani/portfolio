@@ -76,6 +76,7 @@
         "title": "Projekte",
         "subtitle": "Meine Arbeiten",
         "intro": "Diese Projekte spiegeln meine Weiterentwicklung in der Softwareentwicklung und im datenbasierten Arbeiten wider. Jedes Projekt war eine praxisnahe Gelegenheit, meine Fähigkeiten zu vertiefen, neue Technologien auszuprobieren und funktionale Lösungen zu realisieren – von Webanwendungen bis hin zu Machine-Learning-Workflows. Zu jedem Projekt finden Sie eine kurze Beschreibung sowie einen Link zum Quellcode.",
+        "button":"Weitere Informationen auf GitHub →",
         "histoapp": {
             "name": "HistoApp",
             "description": "Fullstack-Applikation mit React & Spring Boot zur Darstellung und Annotation von DICOM-Bilddaten – integriert mit Orthanc PACS und Keycloak."

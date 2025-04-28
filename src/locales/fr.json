@@ -76,6 +76,7 @@
             "title": "Projets",
             "subtitle": "Mes réalisations",
             "intro": "Ces projets reflètent ma progression en développement logiciel et dans l’analyse de données. Chacun d’eux m’a permis d’approfondir mes compétences, d’explorer de nouvelles technologies et de mettre en œuvre des solutions concrètes — des applications web aux workflows d’apprentissage automatique. Vous trouverez pour chaque projet une brève description ainsi qu’un lien vers le code source.",
+            "button":"Plus d'informations sur GitHub →",
             "histoapp": {
                 "name": "HistoApp",
                 "description": "Application fullstack avec React & Spring Boot pour la visualisation et l’annotation d’images DICOM – intégrée à Orthanc PACS et Keycloak."
