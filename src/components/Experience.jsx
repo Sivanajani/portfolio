@@ -46,8 +46,8 @@ const ExperienceCard = ({ experience }) => {
     >
       <Tilt 
       options={{
-        max: 0.5,
-        scale: 0.2,
+        max: 10,
+        scale: 1,
         speed: 1000,
         glareEnable: false,
       }}
