@@ -96,6 +96,10 @@
         "parkinson": {
             "name": "Parkinson Datensatzanalyse",
             "description": "Vorverarbeitung und Visualisierung von 5.875 Sprachaufnahmen von Parkinson-Patient:innen zur Untersuchung möglicher Prädiktoren für UPDRS-Werte."
+        },
+        "qrapp": {
+            "name": "QR-Code Generator App",
+            "description": "Desktop-Applikation zum Generieren und Speichern von QR-Codes mit individueller Anpassung und Logo-Einbettung."
         }
     },
     "contact": {

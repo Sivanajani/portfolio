@@ -96,7 +96,12 @@
         "parkinson": {
             "name": "Parkinson Dataset Analysis",
             "description": "Preprocessed and visualized 5,875 voice recordings from Parkinson's patients to identify predictors of UPDRS scores."
+        },
+        "qrapp": {
+          "name": "QR Code Generator App",
+          "description": "Desktop application for generating and saving QR codes, supporting customizations and logo embedding."
         }
+
     },
     "contact": {
         "title": "Contact Me",

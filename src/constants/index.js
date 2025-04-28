@@ -13,6 +13,7 @@ import {
   threejs,
   region,
   park,
+  qr,
   roche,
   fhnw,
   ksa,
@@ -140,6 +141,18 @@ export const projects = [
     image: histoapp,
     source_code_link: "https://github.com/Sivanajani/HistoApp",
     glowColor: "#915EFF",
+  },
+  {
+    name: "projects.qrapp.name",
+    description: "projects.qrapp.description",
+    tags: [
+      { name: "Python", color: "lavender-text-gradient" },
+      { name: "Tkinter", color: "lavender-text-gradient" },
+      { name: "Desktop-App", color: "lavender-text-gradient" },
+    ],
+    image: qr,
+    source_code_link: "https://github.com/Sivanajani/qr-desktop-app",
+    glowColor: "#4B5A65",
   },
   {
     name: "projects.anamnese.name",

@@ -10,6 +10,7 @@ import ana from "./projects/ana.png";
 import emotion from "./projects/emotion.png";
 import region from "./projects/region.png";
 import park from "./projects/park.png";
+import qr from "./projects/qr.png";
 
 // Import tech logos
 import git from "./tech/git.png";
@@ -47,6 +48,7 @@ export {
   histoapp,
   ana,
   park,
+  qr,
   emotion,
   region,
   logo,

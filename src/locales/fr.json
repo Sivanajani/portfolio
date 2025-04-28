@@ -96,7 +96,12 @@
             "parkinson": {
                 "name": "Analyse de données sur la maladie de Parkinson",
                 "description": "Prétraitement et visualisation de 5 875 enregistrements vocaux de patients atteints de la maladie de Parkinson afin d’identifier les prédicteurs des scores UPDRS."
+            },
+            "qrapp": {
+              "name": "Application génératrice de QR Codes",
+              "description": "Application de bureau permettant de générer et sauvegarder des QR codes, avec options de personnalisation et d’insertion de logo."
             }
+
     },
     "contact": {
         "title": "Contactez-moi",
