@@ -3,6 +3,8 @@ import { BrowserRouter } from 'react-router-dom';
 import { About, Contact, Experience, Hero, Navbar, StarsCanvas, Tech, Works } from './components';
 import Footer from './components/Footer';
 import SocialSidebar from "./components/SocialSidebar";
+import Engagement from './components/Engagement';
+
 
 
 const App = () => {
@@ -23,6 +25,7 @@ const App = () => {
         <Tech />
         <Experience />
         <Works />
+        <Engagement />
         <div className="relative z-0">
           <Contact />
           <StarsCanvas />

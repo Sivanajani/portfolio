@@ -22,6 +22,45 @@ import {
   linux,
   Kotlin,
 } from "../assets";
+import { FaHandsHelping, FaRibbon } from "react-icons/fa";
+
+export const engagements = [
+  {
+    title: "sections.engagement.eng1.title",
+    date: "sections.engagement.eng1.date",
+    icon: "FaHandsHelping",  // Nur der Name als String
+    description: [
+      "sections.engagement.eng1.point1",
+      "sections.engagement.eng1.point2",
+      "sections.engagement.eng1.point3",
+    ],
+    download: "/UNESCO.pdf"
+  },
+  {
+    title: "sections.engagement.eng2.title",
+    date: "sections.engagement.eng2.date",
+    icon: "FaRibbon",
+    description: [
+      "sections.engagement.eng2.point1",
+      "sections.engagement.eng2.point2",
+      "sections.engagement.eng2.point3",
+    ],
+    link: "https://www.20min.ch/story/schuelerin-20-schickt-krebskranke-auf-laufsteg-414065714213",
+  },
+  {
+    title: "sections.engagement.eng3.title",
+    date: "sections.engagement.eng3.date",
+    icon: "FaUserGraduate",
+    description: [
+      "sections.engagement.eng3.point1",
+      //"sections.engagement.eng3.point2",
+      "sections.engagement.eng3.point3",
+    ],
+    link: "https://www.linkedin.com/posts/lifesciences_fhnw_antriebwirkung-deinantriebdeinewirkung-bachelorkampagne-activity-7338475308620120065-7BUt?utm_source=share&utm_medium=member_desktop&rcm=ACoAADqXAFkBt3n8bjfSjxTFeRNV4AziMieYPyI",
+  },
+];
+
+
 
 export const navLinks = [
   {
@@ -39,6 +78,10 @@ export const navLinks = [
   {
     id: "projects",
     title: "navbar.projects",
+  },
+  {
+    id: "engagement", 
+    title: "navbar.engagement",
   },
   {
     id: "contact",

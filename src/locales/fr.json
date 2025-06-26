@@ -4,6 +4,7 @@
       "tech": "Tech Stack",
       "work": "Expérience",
       "projects": "Projets",
+      "engagement": "Engagement",
       "contact": "Contact"
     },
     "hero": {
@@ -69,6 +70,31 @@
               "point2": "Gestion de la correspondance interne et externe",
               "point3": "Contrôle de la qualité, des données et de la fraîcheur",
               "point4": "Service clientèle et information aux clients"
+            }
+          },
+          "engagement": {
+            "title": "Engagement",
+            "sub": "Ce dans quoi je me suis investie",
+            "eng1": {
+              "title": "Allemand pour les réfugiés",
+              "date": "Nov. 2017 – Jan. 2018, Liestal",
+              "point1": "Bénévolat pour la Commission nationale suisse pour l’UNESCO",
+              "point2": "Préparer et organiser du matériel pédagogique",
+              "point3": "Enseigner l’allemand langue étrangère en petits groupes"
+            },
+            "eng2": {
+              "title": "Défilé de mode caritatif",
+              "date": "06 avril 2017, Liestal",
+              "point1": "Événement caritatif avec des personnes atteintes de cancer",
+              "point2": "Stratégie marketing personnelle (réseaux sociaux, impression)",
+              "point3": "Direction réussie de plusieurs petits groupes"
+            },
+            "eng3": {
+              "title": "Ambassadrice en informatique médicale",
+              "date": "Depuis 2025, FHNW",
+              "point1": "Représentation du programme d’informatique médicale",
+              "point2": "Participation à des salons et événements d'information",
+              "point3": "Échange avec des étudiant·es potentiels et nouveaux"
             }
           }
         },

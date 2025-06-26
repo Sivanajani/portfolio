@@ -20,17 +20,6 @@ const Footer = () => {
       {showCredits && (
         <div className="mt-4 px-6 max-w-3xl mx-auto text-left text-secondary text-sm space-y-2">
           <p>
-            {t("footer.inspiration")}{" "}
-            <a
-              href="https://github.com/lohitkolluri"
-              className="underline"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Lohit Kolluri
-            </a>.
-          </p>
-          <p>
             {t("footer.model1")}{" "}
             <a
               href="https://sketchfab.com/cmzw"

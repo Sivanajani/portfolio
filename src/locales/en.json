@@ -4,6 +4,7 @@
       "tech": "Tech Stack",
       "work": "Experience",
       "projects": "Projects",
+      "engagement": "Engagement",
       "contact": "Contact"
     },
     "hero": {
@@ -69,6 +70,31 @@
           "point2": "Handled internal and external communications",
           "point3": "Ensured quality control, data accuracy and freshness of products",
           "point4": "Provided customer support and service"
+        }
+      },
+      "engagement": {
+        "title": "Engagement",
+        "sub": "Where I have been engaged",
+        "eng1": {
+          "title": "German for Refugees",
+          "date": "Nov. 2017 – Jan. 2018, Liestal",
+          "point1": "Volunteer work for UNESCO Commission",
+          "point2": "Preparation of teaching materials",
+          "point3": "Teaching German as a second language in small groups"
+          },
+        "eng2": {
+          "title": "Charity Fashion Show",
+          "date": "06 April 2017, Liestal",
+          "point1": "Charity event for and with people with cancer",
+          "point2": "Own marketing strategy (social media, print)",
+          "point3": "Successfully led small teams"
+        },
+        "eng3": {
+          "title": "Student Ambassador Medical Informatics",
+          "date": "Since 2025, FHNW",
+          "point1": "Representing the Medical Informatics program",
+          "point2": "Attending information events and fairs",
+          "point3": "Exchanging ideas with prospective and new students"
         }
       }
     },
