@@ -1,108 +1,58 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import { styles } from "../styles";
 import { github } from "../assets";
 import { SectionWrapper } from "../hoc";
 import { projects } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 
-const ProjectCardContent = ({ name, description, tags, image, source_code_link, glowColor }) => {
+const ProjectCard = ({ name, description, tags, image, source_code_link, index }) => {
   const { t } = useTranslation();
 
   return (
-    <div
-      className="bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full min-h-[540px] flex flex-col transition-all duration-300 hover:scale-105"
-      onMouseEnter={(e) => {
-        e.currentTarget.style.boxShadow = `0 0 12px ${glowColor}`;
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.boxShadow = "0 0 0px transparent";
-        }}
+    <motion.article
+      variants={fadeIn("up", "spring", Math.min(index * 0.1, 0.5), 0.7)}
+      className="glass card-hover rounded-2xl overflow-hidden flex flex-col group"
     >
-
-      <div className="overflow-hidden rounded-2xl w-full h-[230px] cursor-pointer">
+      <div className="relative w-full h-[210px] overflow-hidden">
         <img
           src={image}
-          alt="project_image"
-          className="w-full h-full object-cover transition-transform duration-300 hover:scale-110 cursor-pointer"
+          alt={t(name)}
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 cursor-pointer"
           onClick={() => window.open(source_code_link, "_blank")}
         />
-        <div className="absolute inset-0 flex justify-end m-3 pointer-events-none">
-          <div
-            onClick={() => window.open(source_code_link, "_blank")}
-            className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer"
-          >
-            <img src={github} alt="source code" className="w-1/2 h-1/2 object-contain" />
-          </div>
-        </div>
+        <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-transparent to-transparent pointer-events-none" />
+        <button
+          type="button"
+          aria-label="Source code on GitHub"
+          onClick={() => window.open(source_code_link, "_blank")}
+          className="absolute top-3 right-3 glass-strong w-10 h-10 rounded-full flex justify-center items-center cursor-pointer hover:scale-110 transition-transform"
+        >
+          <img src={github} alt="" className="w-1/2 h-1/2 object-contain" />
+        </button>
       </div>
-      <div className="mt-5 flex-1 flex flex-col">
-        <h3 className="text-white font-bold text-[24px]">{t(name)}</h3>
-        <p className="mt-2 text-secondary text-[14px] flex-1">{t(description)}</p>
+
+      <div className="p-6 flex-1 flex flex-col">
+        <h3 className="text-white-100 font-display font-bold text-[20px]">{t(name)}</h3>
+        <p className="mt-2.5 text-muted text-[14px] leading-[23px] flex-1">{t(description)}</p>
         <div className="mt-4 flex flex-wrap gap-2">
           {tags.map((tag) => (
             <span
-            key={tag.name}
-            className={`text-[12px] ${tag.color} bg-white-100 px-2 py-1 rounded-full shadow-sm`}
-          >
-            #{tag.name}
-          </span>
-          
+              key={tag.name}
+              className="text-[12px] font-medium text-secondary bg-secondary/10 border border-secondary/25 px-2.5 py-1 rounded-full"
+            >
+              {tag.name}
+            </span>
           ))}
         </div>
       </div>
-    </div>
+    </motion.article>
   );
-};
-
-const ProjectCard = (props) => {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 768px)");
-    setIsMobile(mediaQuery.matches);
-
-    const handleResize = (e) => setIsMobile(e.matches);
-    mediaQuery.addEventListener("change", handleResize);
-
-    return () => mediaQuery.removeEventListener("change", handleResize);
-  }, []);
-
-  return (
-    <motion.div variants={fadeIn("up", "spring")}>
-      <ProjectCardContent {...props} />
-    </motion.div>
-  );
-  
 };
 
 const Works = () => {
   const { t } = useTranslation();
-  const [activeTag, setActiveTag] = useState("All");
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 768px)");
-    setIsMobile(mediaQuery.matches);
-    const handleResize = (e) => setIsMobile(e.matches);
-    mediaQuery.addEventListener("change", handleResize);
-    return () => mediaQuery.removeEventListener("change", handleResize);
-  }, []);
-
-  const uniqueTags = [
-    "All",
-    ...new Set(projects.flatMap((project) => project.tags.map((tag) => tag.name))),
-  ];
-
-  const filteredProjects =
-    activeTag === "All"
-      ? projects
-      : projects.filter((project) =>
-          project.tags.some((tag) => tag.name === activeTag)
-        );
 
   return (
     <>
@@ -114,48 +64,35 @@ const Works = () => {
       <div className="w-full flex">
         <motion.p
           variants={fadeIn("", "", 0.1)}
-          className="mt-3 text-secondary text-[17px] max-w-3xl leading-[30px] text-center mx-auto"
+          className="mt-4 text-muted text-[17px] max-w-3xl leading-[30px] text-center mx-auto"
         >
           {t("projects.intro")}
         </motion.p>
       </div>
 
-      {isMobile ? (
-        <>
-          <div className="relative w-full flex justify-center mt-3">
-            <div className="absolute top-0 animate-bounce-x text-secondary text-sm bg-white rounded-full px-4 py-1 shadow-md">
-              <span className="text-sm">← Swipe →</span>
-            </div>
-          </div>
-          <Swiper
-            spaceBetween={20}
-            slidesPerView={1}
-            loop={true}
-            className="mt-10 max-w-xs mx-auto"
+      {/* mobile: swipeable carousel with snap · desktop: grid */}
+      <div className="sm:hidden relative w-full flex justify-center mt-8">
+        <span className="animate-bounce-x text-muted text-[13px] glass rounded-full px-4 py-1.5">
+          ← {t("projects.swipe")} →
+        </span>
+      </div>
+      <div className="mt-5 sm:mt-14 flex sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 overflow-x-auto sm:overflow-visible snap-x snap-mandatory no-scrollbar -mx-6 px-6 sm:mx-0 sm:px-0 pb-2 sm:pb-0">
+        {projects.map((project, index) => (
+          <div
+            key={`project-${index}`}
+            className="min-w-[82%] xs:min-w-[75%] sm:min-w-0 snap-center"
           >
-            {filteredProjects.map((project, index) => (
-              <SwiperSlide key={`project-${index}`}>
-                <ProjectCard {...project} />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </>
-      ) : (
-        <div className="mt-20 flex flex-wrap gap-7 justify-center">
-          {filteredProjects.map((project, index) => (
-            <div className="flex flex-col h-full" key={`project-${index}`}>
-              <ProjectCard {...project} />
-            </div>
-          ))}
-        </div>
-      )}
+            <ProjectCard index={index} {...project} />
+          </div>
+        ))}
+      </div>
 
-      <div className="mt-10 flex justify-center">
+      <div className="mt-12 flex justify-center">
         <a
           href="https://github.com/Sivanajani"
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-gradient-to-r from-secondary to-[#ff8b80] py-3 px-8 rounded-xl text-white font-bold shadow-lg hover:shadow-2xl transition-all duration-300"
+          className="btn-gradient py-3.5 px-8 rounded-xl text-white font-semibold"
         >
           {t("projects.button")}
         </a>

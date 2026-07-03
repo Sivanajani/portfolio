@@ -1,85 +1,47 @@
-import React, { useEffect, useState } from "react";
-import { BallCanvas } from "./canvas";
+import React from "react";
 import { SectionWrapper } from "../hoc";
 import { technologies } from "../constants";
 import { styles } from "../styles";
 import { motion } from "framer-motion";
 import { textVariant } from "../utils/motion";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 
-const ITEMS_PER_PAGE = 6;
+const TechCard = ({ name, icon }) => (
+  <div className="glass card-hover rounded-2xl px-6 py-4 flex items-center gap-3 shrink-0">
+    <img src={icon} alt={name} className="w-9 h-9 object-contain" />
+    <span className="text-white-100 font-medium text-[15px] whitespace-nowrap">{name}</span>
+  </div>
+);
+
+const MarqueeRow = ({ items, reverse }) => (
+  <div className="marquee-mask overflow-hidden marquee-row">
+    <div
+      className={`flex gap-4 w-max py-2 ${reverse ? "animate-marquee-reverse" : "animate-marquee"}`}
+    >
+      {[...items, ...items].map((tech, i) => (
+        <TechCard key={`${tech.name}-${i}`} {...tech} />
+      ))}
+    </div>
+  </div>
+);
 
 const Tech = () => {
   const { t } = useTranslation();
-  const [currentPage, setCurrentPage] = useState(1);
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 768px)");
-    setIsMobile(mediaQuery.matches);
-
-    const handleChange = (e) => setIsMobile(e.matches);
-    mediaQuery.addEventListener("change", handleChange);
-
-    return () => mediaQuery.removeEventListener("change", handleChange);
-  }, []);
-
-  const totalPages = Math.ceil(technologies.length / ITEMS_PER_PAGE);
-
-  const paginatedTechnologies = isMobile
-    ? technologies.slice(
-        (currentPage - 1) * ITEMS_PER_PAGE,
-        currentPage * ITEMS_PER_PAGE
-      )
-    : technologies;
+  const half = Math.ceil(technologies.length / 2);
+  const rowA = technologies.slice(0, half);
+  const rowB = technologies.slice(half);
 
   return (
     <>
       <motion.div variants={textVariant()}>
-        <p className={`${styles.sectionSubText} text-center`}>
-        {t("tech.subtitle")}
-        </p>
-        <h2 className={`${styles.sectionHeadText} text-center`}>
-        {t("tech.title")}
-        </h2>
+        <p className={`${styles.sectionSubText} text-center`}>{t("tech.subtitle")}</p>
+        <h2 className={`${styles.sectionHeadText} text-center`}>{t("tech.title")}</h2>
       </motion.div>
 
-      <div className="mt-5 flex flex-row flex-wrap justify-center gap-10">
-        {paginatedTechnologies.map(({ name, icon }) => (
-          <div className="relative w-28 h-28 group transition-transform duration-300 hover:scale-110" key={name}>
-            <BallCanvas icon={icon} />
-            <div className="absolute -bottom-7 left-1/2 transform -translate-x-1/2 bg-[#2a2a2a] text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition duration-200">
-              {name}
-            </div>
-          </div>
-        ))}
+      <div className="mt-12 flex flex-col gap-4">
+        <MarqueeRow items={rowA} />
+        <MarqueeRow items={rowB} reverse />
       </div>
-
-      {isMobile && totalPages > 1 && (
-        <div className="mt-6 flex justify-center gap-4 mt-8">
-          <button
-            onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-            disabled={currentPage === 1}
-            className="min-w-[48px] min-h-[48px] px-4 py-2 bg-tertiary text-white rounded-md text-lg hover:bg-secondary transition active:scale-95 disabled:opacity-50"
-          >
-            {t("tech.prev")}
-          </button>
-          
-          <span className="text-black text-sm mt-1">
-          {t("tech.page", { current: currentPage, total: totalPages })}
-          </span>
-
-          <button
-            onClick={() =>
-              setCurrentPage((prev) => Math.min(prev + 1, totalPages))
-            }
-            disabled={currentPage === totalPages}
-            className="min-w-[48px] min-h-[48px] px-4 py-2 bg-tertiary text-white rounded-md text-lg hover:bg-secondary transition active:scale-95 disabled:opacity-50"
-          >
-            {t("tech.next")}
-          </button>
-        </div>
-      )}
     </>
   );
 };

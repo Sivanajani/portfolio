@@ -3,6 +3,10 @@ import roche from "./company/roche.png";
 import fhnw from "./company/fhnw.png";
 import ksa from "./company/ksa.png";
 import kiosk from "./company/kiosk.png";
+import unibe from "./company/unibe.svg";
+import alpinelink from "./company/alpinelink.svg";
+import stealth from "./company/stealth.svg";
+import swissntech from "./company/swissntech.svg";
 
 // Import project images
 import histoapp from "./projects/histoapp.png";
@@ -11,6 +15,7 @@ import emotion from "./projects/emotion.png";
 import region from "./projects/region.png";
 import park from "./projects/park.png";
 import qr from "./projects/qr.png";
+import pdfrag from "./projects/pdfrag.png";
 
 // Import tech logos
 import git from "./tech/git.png";
@@ -58,5 +63,10 @@ export {
   fhnw,
   ksa,
   kiosk,
+  unibe,
+  alpinelink,
+  stealth,
+  swissntech,
+  pdfrag,
   springb,
 };

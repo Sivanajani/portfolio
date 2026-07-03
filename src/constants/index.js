@@ -14,27 +14,30 @@ import {
   region,
   park,
   qr,
+  pdfrag,
   roche,
   fhnw,
   ksa,
   kiosk,
+  unibe,
+  alpinelink,
+  swissntech,
   docker,
   linux,
   Kotlin,
 } from "../assets";
-import { FaHandsHelping, FaRibbon } from "react-icons/fa";
 
 export const engagements = [
   {
     title: "sections.engagement.eng1.title",
     date: "sections.engagement.eng1.date",
-    icon: "FaHandsHelping",  // Nur der Name als String
+    icon: "FaHandsHelping",
     description: [
       "sections.engagement.eng1.point1",
       "sections.engagement.eng1.point2",
       "sections.engagement.eng1.point3",
     ],
-    download: "/UNESCO.pdf"
+    download: "/UNESCO.pdf",
   },
   {
     title: "sections.engagement.eng2.title",
@@ -53,14 +56,11 @@ export const engagements = [
     icon: "FaUserGraduate",
     description: [
       "sections.engagement.eng3.point1",
-      //"sections.engagement.eng3.point2",
       "sections.engagement.eng3.point3",
     ],
     link: "https://www.linkedin.com/posts/lifesciences_fhnw_antriebwirkung-deinantriebdeinewirkung-bachelorkampagne-activity-7338475308620120065-7BUt?utm_source=share&utm_medium=member_desktop&rcm=ACoAADqXAFkBt3n8bjfSjxTFeRNV4AziMieYPyI",
   },
 ];
-
-
 
 export const navLinks = [
   {
@@ -80,7 +80,7 @@ export const navLinks = [
     title: "navbar.projects",
   },
   {
-    id: "engagement", 
+    id: "engagement",
     title: "navbar.engagement",
   },
   {
@@ -90,23 +90,64 @@ export const navLinks = [
 ];
 
 export const technologies = [
-
   { name: "Docker", icon: docker },
   { name: "Git", icon: git },
   { name: "Java", icon: java },
-  { name: "Java Script", icon: javascript },
+  { name: "JavaScript", icon: javascript },
   { name: "Kotlin", icon: Kotlin },
   { name: "Linux", icon: linux },
-  { name: "Node JS", icon: nodejs },
+  { name: "Node.js", icon: nodejs },
   { name: "Python", icon: python },
-  { name: "Rect JS", icon: reactjs },
+  { name: "React", icon: reactjs },
   { name: "Spring Boot", icon: springb },
   { name: "Tailwind CSS", icon: tailwind },
   { name: "Three.js", icon: threejs },
-
 ];
 
 export const experiences = [
+  {
+    title: "sections.experience.swissntech.title",
+    company_name: "sections.experience.swissntech.company",
+    icon: swissntech,
+    iconBg: "#fafafa",
+    date: "sections.experience.swissntech.date",
+    current: true,
+    points: [
+      "sections.experience.swissntech.point1",
+      "sections.experience.swissntech.point2",
+      "sections.experience.swissntech.point3",
+      "sections.experience.swissntech.point4",
+    ],
+  },
+  {
+    title: "sections.experience.eforms.title",
+    company_name: "sections.experience.eforms.company",
+    icon: unibe,
+    iconBg: "#fafafa",
+    date: "sections.experience.eforms.date",
+    link: "https://www.unibe.ch",
+    points: [
+      "sections.experience.eforms.point1",
+      "sections.experience.eforms.point2",
+      "sections.experience.eforms.point3",
+      "sections.experience.eforms.point4",
+    ],
+  },
+  {
+    title: "sections.experience.alpinelink.title",
+    company_name: "sections.experience.alpinelink.company",
+    icon: alpinelink,
+    iconBg: "#fafafa",
+    date: "sections.experience.alpinelink.date",
+    link: "https://www.alpinelink.ch",
+    current: true,
+    points: [
+      "sections.experience.alpinelink.point1",
+      "sections.experience.alpinelink.point2",
+      "sections.experience.alpinelink.point3",
+      "sections.experience.alpinelink.point4",
+    ],
+  },
   {
     title: "sections.experience.roche.title",
     company_name: "sections.experience.roche.company",
@@ -166,97 +207,100 @@ export const experiences = [
 
 export const projects = [
   {
-    name: "projects.histoapp.name",
-    description:
-      "projects.histoapp.description",
+    name: "projects.pdfrag.name",
+    description: "projects.pdfrag.description",
     tags: [
-      { name: "React", color: "lavender-text-gradient" },
-      { name: "Kotlin", color: "lavender-text-gradient" },
-      { name: "Docker", color: "lavender-text-gradient" },
-      { name: "Spring Boot", color: "lavender-text-gradient" },
-      { name: "Linux", color: "lavender-text-gradient" },
-      { name: "Java Script", color: "lavender-text-gradient" },
-      { name: "PACS-Integration", color: "lavender-text-gradient" },
-      { name: "Node.js", color: "lavender-text-gradient" },
-      { name: "Reverse-Proxy", color: "lavender-text-gradient" },
-      { name: "PostgreSQL", color: "lavender-text-gradient" },
+      { name: "RAG / LLM" },
+      { name: "FastAPI" },
+      { name: "React" },
+      { name: "TypeScript" },
+      { name: "Google Gemini" },
+      { name: "Docker" },
+      { name: "Terraform" },
+      { name: "GCP" },
+    ],
+    image: pdfrag,
+    source_code_link: "https://github.com/Sivanajani/pdfrag",
+    glowColor: "#e3b958",
+  },
+  {
+    name: "projects.histoapp.name",
+    description: "projects.histoapp.description",
+    tags: [
+      { name: "React" },
+      { name: "Spring Boot" },
+      { name: "Kotlin" },
+      { name: "Docker" },
+      { name: "PACS / DICOM" },
+      { name: "PostgreSQL" },
+      { name: "Keycloak" },
     ],
     image: histoapp,
     source_code_link: "https://github.com/Sivanajani/HistoApp",
     glowColor: "#915EFF",
   },
   {
-    name: "projects.qrapp.name",
-    description: "projects.qrapp.description",
+    name: "projects.emotion.name",
+    description: "projects.emotion.description",
     tags: [
-      { name: "Python", color: "lavender-text-gradient" },
-      { name: "Tkinter", color: "lavender-text-gradient" },
-      { name: "Desktop-App", color: "lavender-text-gradient" },
+      { name: "PyTorch" },
+      { name: "Vision Transformer" },
+      { name: "Deep Learning" },
+      { name: "Computer Vision" },
     ],
-    image: qr,
-    source_code_link: "https://github.com/Sivanajani/qr-desktop-app",
-    glowColor: "#4B5A65",
+    image: emotion,
+    source_code_link:
+      "https://github.com/Sivanajani/Emotion-Recognition-with-Vision-Transformer",
+    glowColor: "#135495",
   },
   {
     name: "projects.anamnese.name",
-    description:
-      "projects.anamnese.description",
+    description: "projects.anamnese.description",
     tags: [
-      { name: "Python", color: "lavender-text-gradient" },
-      { name: "OCR", color: "lavender-text-gradient" },
-      { name: "Computer Vision", color: "lavender-text-gradient" },
+      { name: "Python" },
+      { name: "OCR" },
+      { name: "Computer Vision" },
     ],
     image: ana,
     source_code_link: "https://github.com/Sivanajani/Anamnese-Formular",
     glowColor: "#2496ED",
   },
   {
-    name: "projects.region.name",
-    description:
-      "projects.region.description",
+    name: "projects.parkinson.name",
+    description: "projects.parkinson.description",
     tags: [
-      { name: "Flood-Fill", color: "lavender-text-gradient" },
-      { name: "Visualization", color: "lavender-text-gradient" },
-      { name: "Matplotlib", color: "lavender-text-gradient" },
-      { name: "region-growing", color: "lavender-text-gradient" },
-      { name: "image processing", color: "lavender-text-gradient" },
-      { name: "NumPy", color: "lavender-text-gradient" },
-      { name: "Clean Code & Documetation", color: "lavender-text-gradient" },
-      { name: "Debugging", color: "lavender-text-gradient" },
-      { name: "Python", color: "lavender-text-gradient" },
+      { name: "Python" },
+      { name: "Pandas" },
+      { name: "Data Science" },
+      { name: "Feature Engineering" },
+    ],
+    image: park,
+    source_code_link: "https://github.com/Sivanajani/Parkinson-Datensatzanalyse",
+    glowColor: "#00788E",
+  },
+  {
+    name: "projects.region.name",
+    description: "projects.region.description",
+    tags: [
+      { name: "Python" },
+      { name: "NumPy" },
+      { name: "Image Processing" },
+      { name: "Region Growing" },
     ],
     image: region,
     source_code_link: "https://github.com/Sivanajani/RegionGrowingLabeln",
     glowColor: "#273916",
   },
   {
-    name: "projects.emotion.name",
-    description:
-      "projects.emotion.description",
+    name: "projects.qrapp.name",
+    description: "projects.qrapp.description",
     tags: [
-      { name: "Computer Vision", color: "lavender-text-gradient" },
-      { name: "Pytorch", color: "lavender-text-gradient" },
-      { name: "ML", color: "lavender-text-gradient" },
-      { name: "Deep-Learning", color: "lavender-text-gradient" },
-      { name: "Facial-Expression", color: "lavender-text-gradient" },
+      { name: "Python" },
+      { name: "Tkinter" },
+      { name: "Desktop App" },
     ],
-    image: emotion,
-    source_code_link: "https://github.com/Sivanajani/Emotion-Recognition-with-Vision-Transformer",
-    glowColor: "#135495",
-  },
-  {
-    name: "projects.parkinson.name",
-    description:
-      "projects.parkinson.description",
-    tags: [
-      { name: "Python", color: "lavender-text-gradient" },
-      { name: "Pandas", color: "lavender-text-gradient" },
-      { name: "medical-dataset", color: "lavender-text-gradient" },
-      { name: "feature-engineering", color: "lavender-text-gradient" },
-      { name: "seaborn", color: "lavender-text-gradient" },
-    ],
-    image: park,
-    source_code_link: "https://github.com/Sivanajani/Parkinson-Datensatzanalyse",
-    glowColor: "#00788E",
+    image: qr,
+    source_code_link: "https://github.com/Sivanajani/qr-desktop-app",
+    glowColor: "#4B5A65",
   },
 ];

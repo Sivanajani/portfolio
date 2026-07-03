@@ -1,63 +1,71 @@
-import { FaHandsHelping, FaRibbon, FaUserGraduate } from "react-icons/fa";
+import { FaHandsHelping, FaRibbon, FaUserGraduate, FaExternalLinkAlt, FaDownload } from "react-icons/fa";
 import { motion } from "framer-motion";
-import { textVariant } from "../utils/motion";
+import { fadeIn, textVariant } from "../utils/motion";
 import { styles } from "../styles";
 import { useTranslation } from "react-i18next";
 import { engagements } from "../constants";
+import { SectionWrapper } from "../hoc";
 
 const iconMap = {
-  FaHandsHelping: <FaHandsHelping className="text-3xl text-cyan-500" />,
-  FaRibbon: <FaRibbon className="text-3xl text-pink-500" />,
-  FaUserGraduate: <FaUserGraduate className="text-3xl text-sky-600" />,
+  FaHandsHelping: <FaHandsHelping size={22} />,
+  FaRibbon: <FaRibbon size={22} />,
+  FaUserGraduate: <FaUserGraduate size={22} />,
 };
 
 const Engagement = () => {
   const { t } = useTranslation();
 
   return (
-    <section id="engagement" className="py-16 px-4">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-10">
-          <p className={`${styles.sectionSubText}`}>{t("sections.engagement.sub")}</p>
-          <h2 className={`${styles.sectionHeadText}`}>{t("sections.engagement.title")}</h2>
-        </div>
+    <>
+      <motion.div variants={textVariant()}>
+        <p className={`${styles.sectionSubText} text-center`}>{t("sections.engagement.sub")}</p>
+        <h2 className={`${styles.sectionHeadText} text-center`}>{t("sections.engagement.title")}</h2>
+      </motion.div>
 
-        <div className="grid gap-8 md:grid-cols-2">
-          {engagements.map((item, index) => (
-            <div
-              key={index}
-              onClick={() => {
-                if (item.link) {
-                  window.open(item.link, "_blank");
-                } else if (item.download) {
-                  const a = document.createElement("a");
-                  a.href = item.download;
-                  a.download = "";
-                  a.click();
-                }
-              }}
-              className="cursor-pointer bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 transition-transform hover:scale-105"
-            >
-              <div className="flex items-center gap-4 mb-4">
+      <div className="mt-14 grid gap-6 md:grid-cols-3">
+        {engagements.map((item, index) => (
+          <motion.div
+            key={index}
+            variants={fadeIn("up", "spring", index * 0.15, 0.7)}
+            onClick={() => {
+              if (item.link) {
+                window.open(item.link, "_blank");
+              } else if (item.download) {
+                const a = document.createElement("a");
+                a.href = item.download;
+                a.download = "";
+                a.click();
+              }
+            }}
+            className="cursor-pointer glass card-hover rounded-2xl p-6 flex flex-col"
+          >
+            <div className="flex items-start justify-between">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-tr from-rose-900/40 to-amber-500/25 border border-white/10 flex items-center justify-center text-secondary">
                 {iconMap[item.icon]}
-                <div>
-                  <h3 className="text-xl font-semibold text-gray-800 dark:text-white">
-                    {t(item.title)}
-                  </h3>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">{t(item.date)}</p>
-                </div>
               </div>
-              <ul className="list-disc list-outside pl-5 text-gray-700 dark:text-gray-300">
-                {item.description.map((point, i) => (
-                  <li key={i}>{t(point)}</li>
-                ))}
-              </ul>
+              <span className="text-muted/70">
+                {item.link ? <FaExternalLinkAlt size={13} /> : <FaDownload size={13} />}
+              </span>
             </div>
-          ))}
-        </div>
+
+            <h3 className="mt-4 text-[18px] font-display font-semibold text-white-100">
+              {t(item.title)}
+            </h3>
+            <p className="mt-1 text-[13px] text-muted">{t(item.date)}</p>
+
+            <ul className="mt-4 space-y-2">
+              {item.description.map((point, i) => (
+                <li key={i} className="flex gap-3 text-[14px] leading-[22px] text-white-100/80">
+                  <span className="mt-[8px] w-1.5 h-1.5 rounded-full bg-gradient-to-r from-secondary to-accent shrink-0" />
+                  {t(point)}
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+        ))}
       </div>
-    </section>
+    </>
   );
 };
 
-export default Engagement;
+export default SectionWrapper(Engagement, "engagement");
